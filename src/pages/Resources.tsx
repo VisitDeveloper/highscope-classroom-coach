@@ -3,7 +3,7 @@ import Link from 'antd/es/typography/Link';
 
 export default function Resources() {
     const {
-        token: { colorPrimary, colorText },
+        token: { colorPrimary },
     } = theme.useToken();
     return (
         <div>

@@ -1,15 +1,15 @@
-import { Button, Input, Modal, theme, Typography } from 'antd'
-import { useState } from 'react'
-import Table from './../components/ui/Table';
-import {
-    FilterOutlined,
-    PlusOutlined,
-} from '@ant-design/icons';
-import { useWindowSize } from '../hooks/use-size';
-import { useNavigate } from 'react-router';
-import CreateClassRoomForm from './CreateClassRoom';
-import TitlePage from './../components/common/title-page';
-import ModalCommon from '../components/ui/modal';
+// import { Button, Input, Modal, theme, Typography } from 'antd'
+// import { useState } from 'react'
+// import Table from './../components/ui/Table';
+// import {
+//     FilterOutlined,
+//     PlusOutlined,
+// } from '@ant-design/icons';
+// import { useWindowSize } from '../hooks/use-size';
+// import { useNavigate } from 'react-router';
+// import CreateClassRoomForm from './CreateClassRoom';
+// import TitlePage from './../components/common/title-page';
+// import ModalCommon from '../components/ui/modal';
 import UsersTable from './../components/common/table-site-management';
 
 function Home() {

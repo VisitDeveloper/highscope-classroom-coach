@@ -105,7 +105,7 @@ import { useWindowSize } from './../hooks/use-size';
 import ModalCommon from './../components/ui/modal';
 import CreateClassRoomForm from './../pages/CreateClassRoom';
 import { useNavigate } from 'react-router';
-import type { ColumnsType } from 'antd/es/table';
+// import type { ColumnsType } from 'antd/es/table';
 
 
 interface Site {
@@ -117,12 +117,12 @@ interface Site {
     operation: string;
 }
 
-const headerStyle: React.CSSProperties = {
-    backgroundColor: '#001529',
-    color: 'white',
-    fontWeight: 600,
-    textAlign: 'center',
-};
+// const headerStyle: React.CSSProperties = {
+//     backgroundColor: '#001529',
+//     color: 'white',
+//     fontWeight: 600,
+//     textAlign: 'center',
+// };
 
 const UsersTable = () => {
     const {

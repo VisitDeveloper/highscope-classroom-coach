@@ -11,11 +11,11 @@ import {
     Radio,
     Select,
     Upload,
-    type InputProps,
-    type InputRef,
+    // type InputProps,
+    // type InputRef,
     TimePicker,
 } from "antd";
-import { type ReactNode, type JSX, type FC, type RefAttributes } from "react";
+import { type ReactNode, type JSX, type FC } from "react";
 import { CreateObjectLiterals } from "./ObjectLiteral";
 
 type LableAlign = "right" | "left";
@@ -124,7 +124,7 @@ const FormElement: FC<FormElementProps> = ({
         componentMapping,
         component,
         componentMapping["input"],
-        { ...propsElement }
+        // { ...propsElement }
     );
 
 

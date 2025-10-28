@@ -8,9 +8,9 @@ import {
 } from '@ant-design/icons';
 import { useWindowSize } from './../../hooks/use-size';
 import ModalCommon from '../ui/modal';
-import CreateClassRoomForm from './../../pages/CreateClassRoom';
+// import CreateClassRoomForm from './../../pages/CreateClassRoom';
 import { useNavigate } from 'react-router';
-import type { ColumnsType } from 'antd/es/table';
+// import type { ColumnsType } from 'antd/es/table';
 import ModalCreateClassRoomForm from './../../pages/ModalCreateClassRoom';
 
 
@@ -23,12 +23,12 @@ interface Site {
     operation: string;
 }
 
-const headerStyle: React.CSSProperties = {
-    backgroundColor: '#001529',
-    color: 'white',
-    fontWeight: 600,
-    textAlign: 'center',
-};
+// const headerStyle: React.CSSProperties = {
+//     backgroundColor: '#001529',
+//     color: 'white',
+//     fontWeight: 600,
+//     textAlign: 'center',
+// };
 
 const UsersTable = () => {
     const {

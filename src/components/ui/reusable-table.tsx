@@ -127,22 +127,22 @@ function downloadBlob(blob: Blob, filename: string) {
 /**
  * Convert array of objects to CSV string
  */
-function toCSV<T extends object>(data: T[], fields?: (keyof T)[]) {
-    if (!data || data.length === 0) return '';
-    const keys = fields && fields.length > 0 ? fields : (Object.keys(data[0]) as (keyof T)[]);
-    const header = keys.join(',');
-    const rows = data.map(row =>
-        keys
-            .map(k => {
-                const v = (row as any)[k];
-                if (v === null || v === undefined) return '';
-                const s = String(v).replace(/"/g, '""');
-                return `"${s}"`;
-            })
-            .join(',')
-    );
-    return [header, ...rows].join('\r\n');
-}
+// function toCSV<T extends object>(data: T[], fields?: (keyof T)[]) {
+//     if (!data || data.length === 0) return '';
+//     const keys = fields && fields.length > 0 ? fields : (Object.keys(data[0]) as (keyof T)[]);
+//     const header = keys.join(',');
+//     const rows = data.map(row =>
+//         keys
+//             .map(k => {
+//                 const v = (row as any)[k];
+//                 if (v === null || v === undefined) return '';
+//                 const s = String(v).replace(/"/g, '""');
+//                 return `"${s}"`;
+//             })
+//             .join(',')
+//     );
+//     return [header, ...rows].join('\r\n');
+// }
 
 /**
  * ReusableTable component
@@ -272,22 +272,22 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
     }, [data, searchText, globalSearch]);
 
     // Export CSV
-    const exportCSV = useCallback(() => {
-        const arr = filteredData.map(item => {
-            // convert any nested objects to JSON
-            const out: any = {};
-            Object.entries(item as any).forEach(([k, v]) => {
-                if (exportOptions.fieldsToExport && exportOptions.fieldsToExport.length > 0) {
-                    if (!(exportOptions.fieldsToExport as string[]).includes(k)) return;
-                }
-                out[k] = v;
-            });
-            return out;
-        });
-        const csv = toCSV(arr, exportOptions.fieldsToExport as any);
-        const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-        downloadBlob(blob, `${exportOptions.fileName || 'export'}.csv`);
-    }, [filteredData, exportOptions]);
+    // const exportCSV = useCallback(() => {
+    //     const arr = filteredData.map(item => {
+    //         // convert any nested objects to JSON
+    //         const out: any = {};
+    //         Object.entries(item as any).forEach(([k, v]) => {
+    //             if (exportOptions.fieldsToExport && exportOptions.fieldsToExport.length > 0) {
+    //                 if (!(exportOptions.fieldsToExport as string[]).includes(k)) return;
+    //             }
+    //             out[k] = v;
+    //         });
+    //         return out;
+    //     });
+    //     const csv = toCSV(arr, exportOptions.fieldsToExport as any);
+    //     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+    //     downloadBlob(blob, `${exportOptions.fileName || 'export'}.csv`);
+    // }, [filteredData, exportOptions]);
 
     // Export XLSX
     const exportXlsx = useCallback(() => {

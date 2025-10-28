@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import type { GetRef, InputRef, TableProps } from 'antd';
-import { Button, Form, Input, Popconfirm, Spin, Table } from 'antd';
-import { DeleteOutlined, EditOutlined, LoadingOutlined, SearchOutlined } from '@ant-design/icons';
-import { useTheme } from './../../hooks/use-theme';
+import { Button, Form, Input, Popconfirm, Table } from 'antd';
+import { DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
+// import { useTheme } from './../../hooks/use-theme';
 
 
 interface TableUIProps {
@@ -367,13 +367,13 @@ const App: React.FC<TableUIProps> = ({ searchText }) => {
                         placeholder={`Search First Name`}
                         value={selectedKeys[0]}
                         onChange={e => setSelectedKeys(e.target.value ? [e.target.value] : [])}
-                        onPressEnter={(e) => confirm({ closeDropdown: true })}
+                        onPressEnter={() => confirm({ closeDropdown: true })}
                         style={{ marginBottom: 8, display: 'block' }}
                     />
                     <Button type="primary" onClick={() => confirm({ closeDropdown: true })} size="small" style={{ width: 90 }}>
                         Search
                     </Button>
-                    <Button onClick={(e) => clearFilters?.()} size="small" style={{ width: 90, marginLeft: 8 }}>
+                    <Button onClick={() => clearFilters?.()} size="small" style={{ width: 90, marginLeft: 8 }}>
                         Reset
                     </Button>
                 </div>
