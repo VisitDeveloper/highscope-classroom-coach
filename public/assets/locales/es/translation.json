@@ -1,0 +1,16 @@
+{
+    "home":"app data in espanish",
+    "mainlayout": {
+        "help": "Ayuda",
+        "logout": "Cerrar sesión",
+        "setting": "Configuración",
+        "user_profile": "Perfil de usuario",
+        "campus_home": "Inicio del campus",
+        "manage_site": "Administrar sitio",
+        "manage_staff": "Administrar personal",
+        "manage_classroom": "Administrar aula",
+        "reports": "Informes",
+        "resources": "Recursos",
+        "create_messgae": "Creado por HighScope"
+    }
+}

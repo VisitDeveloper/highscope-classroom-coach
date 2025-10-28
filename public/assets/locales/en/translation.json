@@ -1,0 +1,16 @@
+{
+    "home": "app data home",
+    "mainlayout": {
+        "help": "Help",
+        "logout": "Logout",
+        "setting": "Setting",
+        "user_profile": "User Profile",
+        "campus_home": "Campus Home",
+        "manage_site": "Manage Site",
+        "manage_staff": "Manage Staff",
+        "manage_classroom": "Manage Classroom",
+        "reports": "Reports",
+        "resources": "Resources",
+        "create_messgae": "Created by HighScope"
+    }
+}

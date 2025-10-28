@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+:root {
+  --modal-titlefontszie: 24px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.my-modal .ant-modal-title {
+  font-size: var(--modal-titlefontszie);
+}
+
+.ant-menu-item-selected {
+  background: #00A86B;
+  background: linear-gradient(90deg, rgba(0, 168, 107, 1) 2%, rgba(40, 201, 142, 1) 53%);
+  color: white !important;
+  box-shadow: 0 0 5px rgba(0, 168, 107, 0.8);
+}
+
+[tabindex]:focus-visible {
+  outline: 4px solid #00A86B;
+  border-radius: 1px;
+}
+
+
+
+
+
+/* toast - please don't touch them - just be here may be romoved */
+.Toastify__toast--error {
+  border: 1px solid red !important;
+  border-radius: 10px !important;
+  background: white;
+  padding: 3px;
+  align-items: center;
+}
+
+
+.Toastify__toast--success {
+  border: 1px solid green !important;
+  border-radius: 10px !important;
+  background: white;
+  padding: 3px;
+  align-items: center;
+}
+
+
+.Toastify__toast--warning {
+  border: 1px solid blue !important;
+  border-radius: 10px !important;
+  background: white;
+  padding: 3px;
+  align-items: center;
+}
+
+.Toastify__toast--info {
+  border: 1px solid yellow !important;
+  border-radius: 10px !important;
+  background: white !important;
+  padding: 3px;
+  align-items: center;
+}
+
+.Toastify__toast-container {
+  margin-top: 14px;
+}
+
+.Toastify__toast-body {
+  color: #fff;
+  font-size: 16px;
+  padding-left: 20px;
+  line-height: 20px;
+  padding: 10px;
+  padding-top: 15px;
+  margin-left: 10px !important;
+  position: relative;
+}
+
+.Toastify__toast {
+  overflow: visible;
+}
+
+.Toastify__toast>button>svg {
+  margin-top: 5px;
+  margin-right: 5px !important;
+}
+
+.Toastify__toast-icon {
+  margin-left: -5px;
+  position: absolute;
+  top: -35px;
+  width: 45px;
+}
+
+.result-box {
+  width: 400px;
+  height: 250px;
+  background-color: #232328;
+  border-radius: 10px;
+  filter: drop-shadow(-10px -10px 7px white) drop-shadow(10px 10px 7px white);
+}

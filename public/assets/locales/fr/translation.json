@@ -1,0 +1,16 @@
+{
+    "home": "app data in france",
+    "mainlayout": {
+        "help": "Aide",
+        "logout": "Se déconnecter",
+        "setting": "Paramètres",
+        "user_profile": "Profil utilisateur",
+        "campus_home": "Accueil du campus",
+        "manage_site": "Gérer le site",
+        "manage_staff": "Gérer le personnel",
+        "manage_classroom": "Gérer la classe",
+        "reports": "Rapports",
+        "resources": "Ressources",
+        "create_messgae": "Créé par HighScope"
+    }
+}
