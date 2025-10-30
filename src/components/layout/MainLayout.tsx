@@ -14,7 +14,7 @@ import {
     UserOutlined,
 } from '@ant-design/icons';
 import { Button, Layout, Menu, Select, Switch, theme, Typography } from 'antd';
-import { useLocation, useNavigate } from 'react-router';
+import { Outlet, useLocation, useNavigate } from 'react-router';
 import { useWindowSize } from '../../hooks/use-size';
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
@@ -37,7 +37,6 @@ const siderStyle: React.CSSProperties = {
 };
 
 interface MainLayoutProps {
-    children: React.ReactNode;
     toggleTheme: (checked: boolean) => void;
     isDark: boolean;
 }
@@ -79,13 +78,15 @@ const MainLayout = (props: MainLayoutProps) => {
         {
             title: t("mainlayout.help"),
             icon: <InfoCircleOutlined />,
-            link : '/test'
+            link: '/test'
         },
         {
             title: t("mainlayout.logout"),
             icon: <LogoutOutlined />
         }
     ]
+
+
 
     return (
         <Layout>
@@ -137,33 +138,33 @@ const MainLayout = (props: MainLayoutProps) => {
                     selectedKeys={[location.pathname]}
                     items={[
                         {
-                            key: '/',
+                            key: '/org-admin/home',
                             icon: <ClusterOutlined />,
                             label: <span tabIndex={1}>
                                 {t("mainlayout.manage_site")}
                             </span>,
                         },
                         {
-                            key: '/',
+                            key: '/site-admin/dashboard',
                             icon: <SecurityUser size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
                             label: <span tabIndex={2}>
                                 {t("mainlayout.manage_staff")}
                             </span>,
                         },
                         {
-                            key: '/',
+                            key: '/site-admin/home',
                             icon: <Profile2User size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
                             label: <span tabIndex={3}>
                                 {t("mainlayout.manage_classroom")}
                             </span>,
                         },
                         {
-                            key: '/reports',
+                            key: '/teacher/dashboard',
                             icon: <SnippetsOutlined />,
                             label: <span tabIndex={4}>{t("mainlayout.reports")}</span>,
                         },
                         {
-                            key: '/resources',
+                            key: '/teacher/home',
                             icon: <Book1 size="20" color={location.pathname === '/resources' ? "#fff" : colorText} />,
                             label: <span tabIndex={5}>
                                 {t("mainlayout.resources")}
@@ -236,7 +237,7 @@ const MainLayout = (props: MainLayoutProps) => {
                         borderRadius: borderRadiusLG,
                     }}
                 >
-                    {props.children}
+                    <Outlet />
                 </Content>
                 <Footer className='text-center! h-5! text-xs!'>
                     Classroom Coach ©{new Date().getFullYear()} {t("mainlayout.create_messgae")}

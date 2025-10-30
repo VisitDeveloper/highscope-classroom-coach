@@ -21,6 +21,7 @@
     "module": "ESNext",
     "target": "ESNext",
     "moduleResolution": "Node",
+    "erasableSyntaxOnly": true,
     "jsx": "react-jsx"
   }
 }
