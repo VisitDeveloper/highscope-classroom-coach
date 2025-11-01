@@ -11,6 +11,8 @@
         "manage_classroom": "Manage Classroom",
         "reports": "Reports",
         "resources": "Resources",
+        "materials_checklist":"Materials Checklist",
+        "assessments":"Assessments",
         "create_messgae": "Created by HighScope"
     }
 }

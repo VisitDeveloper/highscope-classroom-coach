@@ -18,7 +18,9 @@ import { Outlet, useLocation, useNavigate } from 'react-router';
 import { useWindowSize } from '../../hooks/use-size';
 import { useTranslation } from "react-i18next";
 import i18n from "i18next";
-import { Book1, Profile2User, SecurityUser } from 'iconsax-reactjs';
+import { Book1, MenuBoard, Profile2User, SecurityUser, Stickynote } from 'iconsax-reactjs';
+import type { UserRole } from './../../routes/_protected-route';
+import { APP_ROUTES } from './../../routes/routes';
 
 const { Header, Sider, Content, Footer } = Layout;
 const { Paragraph } = Typography;
@@ -53,6 +55,7 @@ const MainLayout = (props: MainLayoutProps) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { width } = useWindowSize();
+    const [userRole, setUserRole] = useState<UserRole>("site-admin");
 
     useEffect(() => {
         if (width < 768) {
@@ -83,6 +86,89 @@ const MainLayout = (props: MainLayoutProps) => {
         {
             title: t("mainlayout.logout"),
             icon: <LogoutOutlined />
+        }
+    ]
+
+
+    //  org-admin menu Item
+    const orgAdminArrayMenuItem = [
+        {
+            key: '/org-admin/home',
+            icon: <ClusterOutlined />,
+            label: <span tabIndex={1}>
+                {t("mainlayout.manage_site")}
+            </span>,
+        },
+        {
+            key: '/site-admin/dashboard',
+            icon: <SecurityUser size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
+            label: <span tabIndex={2}>
+                {t("mainlayout.manage_staff")}
+            </span>,
+        },
+        {
+            key: '/site-admin/home',
+            icon: <Profile2User size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
+            label: <span tabIndex={3}>
+                {t("mainlayout.manage_classroom")}
+            </span>,
+        },
+        {
+            key: '/teacher/dashboard',
+            icon: <SnippetsOutlined />,
+            label: <span tabIndex={4}>{t("mainlayout.reports")}</span>,
+        },
+        
+        {
+            key: '/teacher/home',
+            icon: <Book1 size="20" color={location.pathname === '/resources' ? "#fff" : colorText} />,
+            label: <span tabIndex={5}>
+                {t("mainlayout.resources")}
+            </span>,
+        },
+    ]
+
+
+    // site-admin menu item
+    const siteAdminArrayMenuItem = [
+        {
+            key: APP_ROUTES.SITE_ADMIN_ASSESSMENTS,
+            icon: <Stickynote size="20" color={location.pathname === APP_ROUTES.SITE_ADMIN_ASSESSMENTS ? "#fff" : colorText} />,
+            label: <span tabIndex={1}>
+                {t("mainlayout.assessments")}
+            </span>,
+        },
+        {
+            key: APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST,
+            icon: <MenuBoard size="20" color={location.pathname === APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST ? "#fff" : colorText} />,
+            label: <span tabIndex={2}>
+                {t("mainlayout.materials_checklist")}
+            </span>,
+        },
+        {
+            key: APP_ROUTES.SITE_ADMIN_REPORTS,
+            icon: <SnippetsOutlined />,
+            label: <span tabIndex={3}>
+                {t("mainlayout.reports")}
+            </span>,
+        },
+        {
+            key: APP_ROUTES.SITE_ADMIN_RESOURCES,
+            icon: <Book1 size="20" color={location.pathname === APP_ROUTES.SITE_ADMIN_RESOURCES ? "#fff" : colorText} />,
+            label: <span tabIndex={4}>
+                {t("mainlayout.resources")}
+            </span>,
+        }
+    ]
+
+
+    const teacherArrayMenuItem = [
+        {
+            key: '/teacher/dashboard',
+            icon: <SnippetsOutlined />,
+            label: <span tabIndex={4}>
+                {t("mainlayout.resources")}
+            </span>,
         }
     ]
 
@@ -136,43 +222,8 @@ const MainLayout = (props: MainLayoutProps) => {
 
                     }}
                     selectedKeys={[location.pathname]}
-                    items={[
-                        {
-                            key: '/org-admin/home',
-                            icon: <ClusterOutlined />,
-                            label: <span tabIndex={1}>
-                                {t("mainlayout.manage_site")}
-                            </span>,
-                        },
-                        {
-                            key: '/site-admin/dashboard',
-                            icon: <SecurityUser size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
-                            label: <span tabIndex={2}>
-                                {t("mainlayout.manage_staff")}
-                            </span>,
-                        },
-                        {
-                            key: '/site-admin/home',
-                            icon: <Profile2User size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
-                            label: <span tabIndex={3}>
-                                {t("mainlayout.manage_classroom")}
-                            </span>,
-                        },
-                        {
-                            key: '/teacher/dashboard',
-                            icon: <SnippetsOutlined />,
-                            label: <span tabIndex={4}>{t("mainlayout.reports")}</span>,
-                        },
-                        {
-                            key: '/teacher/home',
-                            icon: <Book1 size="20" color={location.pathname === '/resources' ? "#fff" : colorText} />,
-                            label: <span tabIndex={5}>
-                                {t("mainlayout.resources")}
-                            </span>,
-                        },
-
-
-                    ]}
+                    // rule base menu item 
+                    items={userRole === "org-admin" ? orgAdminArrayMenuItem : userRole === "site-admin" ? siteAdminArrayMenuItem : teacherArrayMenuItem}
                 />
             </Sider>
             <Layout>

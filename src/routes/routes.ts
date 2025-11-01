@@ -1,14 +1,28 @@
+
+const UserRoleConstant = {
+    orgAdmin: '/org-admin',
+    siteAdmin: '/site-admin',
+    teacher: '/teacher'
+}
+
 export const APP_ROUTES = {
-    LOGIN: "/",
+    LOGIN: "/login",
 
-    ORG_ADMIN_DASHBOARD: "/org-admin/dashboard",
-    ORG_ADMIN_HOME: "/org-admin/home",
+    // org-admin rule routes
+    ORG_ADMIN_DASHBOARD: `${UserRoleConstant.orgAdmin}/dashboard`,
+    ORG_ADMIN_HOME: `${UserRoleConstant.orgAdmin}/home`,
 
-    SITE_ADMIN_DASHBOARD : '/site-admin/dashboard',
-    SITE_ADMIN_HOME : '/site-admin/home',
+    // site-admin rule routes
+    SITE_ADMIN_ASSESSMENTS: `${UserRoleConstant.siteAdmin}/assessments`,
+    SITE_ADMIN_MATERIALS_CHECKLIST: `${UserRoleConstant.siteAdmin}/materials`,
+    SITE_ADMIN_REPORTS: `${UserRoleConstant.siteAdmin}/reports`,
+    SITE_ADMIN_RESOURCES: `${UserRoleConstant.siteAdmin}/resources`,
 
-    TEACHER_DASHBOARD  : '/teacher/dashboard',
-    TEACHER_HOME : '/teacher/home',
-    
+
+
+    // teacher rule routes
+    TEACHER_DASHBOARD: `${UserRoleConstant.teacher}/dashboard`,
+    TEACHER_HOME: `${UserRoleConstant.teacher}/home`,
+
     NOT_FOUND: '*'
 }

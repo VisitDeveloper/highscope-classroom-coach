@@ -1,43 +1,47 @@
 import { Navigate, Outlet, useLocation } from "react-router-dom";
+import { APP_ROUTES } from "./routes";
+
+export type UserRole = "org-admin" | "site-admin" | "teacher";
 
 interface ProtectedRoutesProps {
-    isAllowed?: boolean; // آیا دسترسی به این route مجاز است؟
-    isLogin?: boolean;   // آیا کاربر لاگین کرده؟
-    userRole?: "org-admin" | "site-admin" | "teacher";
-    loginPath?: string;  // مسیر صفحه لاگین
+    isAllowed?: boolean; // is user can see this route ?
+    isLogin?: boolean;
+    userRole?: UserRole;
+    loginPath?: string;  // login route  
 }
 
 const defaultDashboards: Record<NonNullable<ProtectedRoutesProps["userRole"]>, string> = {
-    "org-admin": "/org-admin/home",
-    "site-admin": "/site-admin/home",
-    "teacher": "/teacher/home",
+    "org-admin": APP_ROUTES.ORG_ADMIN_HOME,
+    "site-admin": APP_ROUTES.SITE_ADMIN_ASSESSMENTS,
+    "teacher": APP_ROUTES.TEACHER_HOME,
 };
 
 const ProtectedRoutes = ({
     isAllowed = false,
     isLogin = false,
     userRole,
-    loginPath = "/login",
+    loginPath = APP_ROUTES.LOGIN,
 }: ProtectedRoutesProps) => {
     const location = useLocation();
 
-    // اگر لاگین نیست → به صفحه لاگین
+    // if is not login back to the login page 
     if (!isLogin) {
         return <Navigate to={loginPath} replace state={{ from: location }} />;
     }
 
-    // اگر اجازه دسترسی دارد → outlet نمایش داده شود
+    // if allow then can see the outlet 
     if (isAllowed) {
         return <Outlet />;
     }
 
-    // کاربر لاگین دارد ولی اجازه ندارد → به داشبورد خودش هدایت شود
+    // it should check user role ro route to the exat role
     if (userRole) {
         const targetPath = defaultDashboards[userRole];
         return <Navigate to={targetPath} replace state={{ from: location }} />;
     }
 
-    // fallback به صفحه لاگین
+
+    // fallback to the login 
     return <Navigate to={loginPath} replace state={{ from: location }} />;
 };
 

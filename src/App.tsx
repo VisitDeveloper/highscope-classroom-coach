@@ -4,10 +4,10 @@ import { theme } from "antd";
 import { darkTokens, lightTokens } from "./config/theme-token";
 import { useTheme } from "./hooks/use-theme";
 import { Routes, Route, Navigate } from "react-router-dom";
-
+import { type UserRole } from './routes/_protected-route'
+import { APP_ROUTES } from "./routes/routes";
 import MainLayout from "./components/layout/MainLayout";
 import ProtectedRoutes from "./routes/_protected-route";
-import Dashboard from "./pages/Teacher/Dashboard";
 
 // Page Lazy Loading
 const Login = React.lazy(() => import("./pages/Login"));
@@ -18,13 +18,16 @@ const DashboardORGAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"))
 const HomeOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Home"));
 
 // Site Admin Pages
-const DashboardSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Dashboard"));
-const HomeSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Home"));
+const AssessmentsSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Assessments"));
+const MaterialsSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/MaterialsChecklist"));
+const ReportSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Reports"));
+const ResourcesSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Resources"));
+
+
 
 // Teacher Pages
 const HomeTeacher = React.lazy(() => import("./pages/Teacher/Home"));
-
-type UserRole = "org-admin" | "site-admin" | "teacher";
+const DashboardTeacher = React.lazy(() => import("./pages/Teacher/Dashboard"));
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
@@ -36,7 +39,7 @@ function App() {
 
   // مثال: user فعلی
 
-  const [userRole, setUserRole] = useState<UserRole>("org-admin");
+  const [userRole, setUserRole] = useState<UserRole>("site-admin");
 
   const [isLogin, setIsLogin] = useState<boolean>(true)
 
@@ -45,19 +48,20 @@ function App() {
       <Suspense fallback={<Spin size="large" style={{ display: "block", margin: "100px auto" }} />}>
         <Routes>
           {/* Login */}
-          <Route path="/login" element={<Login />} />
+          <Route path={APP_ROUTES.LOGIN} element={<Login />} />
 
           {/* Redirect root / به داشبورد خودش */}
+          {/* if in / route it can redirect to the dashboard */}
           <Route
             path="/"
             element={
               <Navigate
                 to={
                   userRole === "org-admin"
-                    ? "/org-admin/dashboard"
+                    ? APP_ROUTES.ORG_ADMIN_HOME
                     : userRole === "site-admin"
-                      ? "/site-admin/dashboard"
-                      : "/teacher/home"
+                      ? APP_ROUTES.SITE_ADMIN_ASSESSMENTS
+                      : APP_ROUTES.TEACHER_HOME
                 }
                 replace
               />
@@ -71,8 +75,8 @@ function App() {
             }
           >
             <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
-              <Route path="/org-admin/dashboard" element={<DashboardORGAdmin />} />
-              <Route path="/org-admin/home" element={<HomeOrgAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_DASHBOARD} element={<DashboardORGAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_HOME} element={<HomeOrgAdmin />} />
             </Route>
           </Route>
 
@@ -83,8 +87,10 @@ function App() {
             }
           >
             <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
-              <Route path="/site-admin/dashboard" element={<DashboardSiteAdmin />} />
-              <Route path="/site-admin/home" element={<HomeSiteAdmin />} />
+              <Route path={APP_ROUTES.SITE_ADMIN_ASSESSMENTS} element={<AssessmentsSiteAdmin />} />
+              <Route path={APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST} element={<MaterialsSiteAdmin />} />
+              <Route path={APP_ROUTES.SITE_ADMIN_REPORTS} element={<ReportSiteAdmin />} />
+              <Route path={APP_ROUTES.SITE_ADMIN_RESOURCES} element={<ResourcesSiteAdmin />} />
             </Route>
           </Route>
 
@@ -95,13 +101,13 @@ function App() {
             }
           >
             <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
-              <Route path="/teacher/home" element={<HomeTeacher />} />
-              <Route path="/teacher/dashboard" element={<Dashboard />} />
+              <Route path={APP_ROUTES.TEACHER_DASHBOARD} element={<DashboardTeacher />} />
+              <Route path={APP_ROUTES.TEACHER_HOME} element={<HomeTeacher />} />
             </Route>
           </Route>
 
           {/* Notfound */}
-          <Route path="*" element={<Notfound />} />
+          <Route path={APP_ROUTES.NOT_FOUND} element={<Notfound />} />
         </Routes>
       </Suspense>
     </ConfigProvider>
