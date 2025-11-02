@@ -14,6 +14,13 @@
   font-size: var(--modal-titlefontszie);
 }
 
+/*  select change language on header */
+.custom-select .ant-select-selector {
+  color: white !important;
+}
+
+
+/* menu Item Selected  */
 .ant-menu-item-selected {
   background: #00A86B;
   background: linear-gradient(90deg, rgba(0, 168, 107, 1) 2%, rgba(40, 201, 142, 1) 53%);
@@ -21,6 +28,7 @@
   box-shadow: 0 0 5px rgba(0, 168, 107, 0.8);
 }
 
+/* menu item tab index focus on */
 [tabindex]:focus-visible {
   outline: 4px solid #00A86B;
   border-radius: 1px;

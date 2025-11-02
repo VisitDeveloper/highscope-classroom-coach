@@ -46,7 +46,7 @@ interface MainLayoutProps {
 const MainLayout = (props: MainLayoutProps) => {
     const { toggleTheme, isDark } = props;
     const {
-        token: { colorBgContainer, borderRadiusLG, colorPrimary, colorText },
+        token: { colorBgContainer, borderRadiusLG, colorPrimary, colorText, colorBgBase, colorTextSecondary },
     } = theme.useToken();
     const { t } = useTranslation();
     const [language, setLanguage] = useState(i18n.language || 'en');
@@ -118,7 +118,7 @@ const MainLayout = (props: MainLayoutProps) => {
             icon: <SnippetsOutlined />,
             label: <span tabIndex={4}>{t("mainlayout.reports")}</span>,
         },
-        
+
         {
             key: '/teacher/home',
             icon: <Book1 size="20" color={location.pathname === '/resources' ? "#fff" : colorText} />,
@@ -178,14 +178,16 @@ const MainLayout = (props: MainLayoutProps) => {
         <Layout>
 
             <Sider
-                className={`overflow-auto h-screen sticky! top-0 bottom-0 shadow-2xl border-r! 
-                    ${isDark ? ' border-r-white bg-white/10 backdrop-blur-3xl' : 'border-r-black bg-black/20 backdrop-blur-3xl'}`}
+                className={`overflow-auto h-screen sticky! top-0 bottom-0 shadow-2xl border-r! transition duration-700! ease-in-out`}
+                // ${isDark ? ' border-r-white bg-white/10 backdrop-blur-3xl' : 'border-r-black bg-black/20 backdrop-blur-3xl'}
                 style={{
-                    ...siderStyle, backgroundImage: isDark ? `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/bg-dark-side-1.jpg')` : `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/images/bg-side-6.jpg')`,
-                    backgroundRepeat: 'no-repeat',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backdropFilter: 'blur(22px)', // برای blur
+                    ...siderStyle,
+                    backgroundColor: colorBgBase
+                    // backgroundImage: isDark ? `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/bg-dark-side-1.jpg')` : `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/images/bg-side-6.jpg')`,
+                    // backgroundRepeat: 'no-repeat',
+                    // backgroundSize: 'cover',
+                    // backgroundPosition: 'center',
+                    // backdropFilter: 'blur(22px)', // برای blur
 
                 }}
                 trigger={null}
@@ -193,9 +195,11 @@ const MainLayout = (props: MainLayoutProps) => {
                 collapsedWidth={width < 768 ? 0 : 80}
                 collapsible
                 collapsed={collapsed}
+                // onCollapse={() => setCollapsed(!collapsed)}
                 onCollapse={(collapsed, type) => {
                     console.log(collapsed, type);
                 }}
+
             >
 
                 <Typography>
@@ -227,19 +231,19 @@ const MainLayout = (props: MainLayoutProps) => {
                 />
             </Sider>
             <Layout>
-                <Header className={`sticky top-0 z-10 w-full flex items-center h-[90px] p-4! border-b! ${isDark ? ' border-b-white!' : 'border-b-black!'}`} style={{ background: colorBgContainer }}>
+                <Header className={`sticky top-0 z-10 w-full flex items-center h-[90px] p-4! border-b! ${isDark ? ' border-b-white!' : 'border-b-black!'}`} style={{ background: colorPrimary }}>
                     <div className='flex flex-row justify-between items-center w-full '>
 
-                        <div className='flex flex-row gap-[15] items-center'>
+                        <div className='flex flex-row gap-[15] items-center '>
                             <Button
                                 type="text"
-                                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                                icon={collapsed ? <MenuUnfoldOutlined className='text-white!' /> : <MenuFoldOutlined className='text-white!' />}
                                 onClick={() => setCollapsed(!collapsed)}
-                                className='text-lg h-14! w-14!'
+                                className='text-lg h-14! w-14! transition duration-700'
                             />
                         </div>
                         <div className={`flex flex-row items-center md:gap-2 gap-1`} >
-                            <Switch size='small' checked={isDark} onChange={toggleTheme}
+                            <Switch size='small' checked={isDark} className='border! border-solid p-1' onChange={toggleTheme}
                                 checkedChildren={<SunOutlined />}
                                 unCheckedChildren={<MoonOutlined />} />
 
@@ -251,7 +255,13 @@ const MainLayout = (props: MainLayoutProps) => {
                                     setLanguage(value);
                                     i18n.changeLanguage(value);
                                 }}
-                                suffixIcon={<GlobalOutlined />}
+                                suffixIcon={<GlobalOutlined style={{ color: colorTextSecondary }} />}
+                                className='custom-select shadow-none! border-2! border-solid! border-white! rounded-sm text-white!'
+                                style={{
+                                    backgroundColor: colorPrimary,
+                                    color: `${colorTextSecondary} !important`
+                                }}
+                                variant="borderless"
                                 children={
                                     <>
                                         <Option value="en">En</Option>
@@ -267,7 +277,9 @@ const MainLayout = (props: MainLayoutProps) => {
                                 ArrayButtonOnHeader.map((item: ArrayButtonOnHeaderType) => {
                                     return (
                                         <>
-                                            <Button type='default' size={width < 950 ? "small" : "middle"} >
+                                            <Button type='primary'
+                                                className='shadow-none! border-2! border-solid! border-white!'
+                                                size={width < 950 ? "small" : "middle"} >
                                                 {item.icon}
                                                 {width < 768 ? null : <span className='text-xs'>{item.title}</span>}
                                             </Button>

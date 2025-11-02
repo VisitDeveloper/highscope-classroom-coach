@@ -63,7 +63,7 @@ export const lightTokens: ThemeTokens = {
 
 
     colorText: "#121212",
-    colorTextSecondary: "#2F2F2F",
+    colorTextSecondary: "#FFFFFF",
     colorBorder: "#43B02A",
 
     colorSuccessBg: "#F6F6F6",

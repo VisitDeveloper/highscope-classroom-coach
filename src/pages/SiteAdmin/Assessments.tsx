@@ -12,6 +12,23 @@ export default function Assessments() {
         Heading H1
       </Typography.Title>
 
+      <Typography.Title level={1}>
+        Heading H1
+      </Typography.Title>
+
+      <Typography.Title level={1}>
+        Heading H1
+      </Typography.Title>
+
+      <Typography.Title level={1}>
+        Heading H1
+      </Typography.Title>
+
+      <Typography.Title level={1}>
+        Heading H1
+      </Typography.Title>
+      
+
       <Typography.Title level={2}>
         Heading H2
       </Typography.Title>
