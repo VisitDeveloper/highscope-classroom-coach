@@ -350,7 +350,7 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
 
     return (
         <div>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
+            <div className='flex justify-between mb-2!'>
                 <div>{toolbar}</div>
             </div>
 

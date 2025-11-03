@@ -197,7 +197,7 @@ const MainLayout = (props: MainLayoutProps) => {
         <Layout>
 
             <Sider
-                className={`overflow-auto h-screen sticky! top-0 bottom-0 shadow-2xl border-r! transition duration-700! ease-in-out`}
+                className={`overflow-auto h-screen sticky! top-0 bottom-0 shadow-2xl  transition duration-700! ease-in-out`}
                 // ${isDark ? ' border-r-white bg-white/10 backdrop-blur-3xl' : 'border-r-black bg-black/20 backdrop-blur-3xl'}
                 style={{
                     ...siderStyle,
@@ -252,7 +252,7 @@ const MainLayout = (props: MainLayoutProps) => {
                 />
             </Sider>
             <Layout>
-                <Header className={`sticky top-0 z-10 w-full flex items-center h-[70px]! p-4! border-b! ${isDark ? ' border-b-white!' : 'border-b-black!'}`} style={{ background: colorPrimary }}>
+                <Header className={`sticky top-0 z-10 w-full flex items-center h-[70px]! p-4!`} style={{ background: colorPrimary }}>
                     <div className='flex flex-row justify-between items-center w-full '>
 
                         <div className='flex flex-row gap-[15] items-center '>
@@ -315,7 +315,7 @@ const MainLayout = (props: MainLayoutProps) => {
                     </div>
                 </Header>
                 <div className='p-1! my-0.5! mx-4!'>
-                    
+
                 </div>
 
                 <Content
