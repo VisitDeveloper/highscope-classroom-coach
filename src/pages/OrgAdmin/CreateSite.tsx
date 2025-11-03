@@ -1,7 +1,7 @@
-import FormDynamicRenderer from './../components/Form/FormDynamicRenderer';
+import FormDynamicRenderer from './../../components/Form/FormDynamicRenderer';
 import { Button, Form, Select } from 'antd';
-import FormElement from './../components/Form/FormElement';
-import TitleForm from './../components/common/title-form';
+import FormElement from './../../components/Form/FormElement';
+import TitleForm from './../../components/common/title-form';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';
 
@@ -15,7 +15,7 @@ const CreateSiteForm = () => {
         console.log('Form values:', values, values.rememberme);
         toast.success('Created Manage')
         setTimeout(() => {
-            navigate('/')
+            navigate(-1)
         }, 500)
     };
 

@@ -15,11 +15,12 @@ interface ThemeTokens {
     colorDangerBg: string;
     colorInfoBg: string;
     colorMenuBg: string;
+
+    headerHeight?: string | number;
     colorMenuItemColor: string;
     colorMenuItemSelectedBg: string;
     colorMenuItemSelectedText: string;
     colorMenuItemHoverBg: string;
-    colorBgHeader: string;
 
     fontSize: number;
     fontSizeSM: number;
@@ -50,27 +51,27 @@ interface ThemeTokens {
 // Light theme tokens
 export const lightTokens: ThemeTokens = {
     colorPrimary: "#43B02A",
-    colorPrimaryHover: "#3A9A25",
+    colorPrimaryHover: "#A7D500",
     colorPrimaryActive: "#358821",
 
     colorSecondary: "#A7D500",
     colorSecondaryHover: "#99C400",
 
     colorBgBase: "#F6F6F6",
-    colorBgContainer: "#DADADA",
+    colorBgContainer: "#F6F6F6",
     colorBgElevated: "#FFFFFF",
-    colorBgHeader: "#43B02A",
 
 
     colorText: "#121212",
     colorTextSecondary: "#FFFFFF",
-    colorBorder: "#43B02A",
+    colorBorder: "#686868",
 
     colorSuccessBg: "#F6F6F6",
     colorWarningBg: "#F6F6F6",
     colorDangerBg: "#F6F6F6",
     colorInfoBg: "#F6F6F6",
 
+    headerHeight: 121,
     colorMenuBg: "#F6F6F6",
     colorMenuItemColor: "#686868",
     colorMenuItemSelectedBg: "#D1D5DB",
@@ -119,7 +120,6 @@ export const darkTokens: ThemeTokens = {
     colorBgBase: '#0F1211',
     colorBgContainer: '#171B19',
     colorBgElevated: '#1F2422',
-    colorBgHeader: "#171B19",
 
     colorText: '#F2F2F2',
     colorTextSecondary: '#A6A8A7',
@@ -129,7 +129,8 @@ export const darkTokens: ThemeTokens = {
     colorWarningBg: '#2E2410',
     colorDangerBg: '#2E0F0F',
     colorInfoBg: '#0F1F2E',
-    
+
+    headerHeight: 121,
     colorMenuBg: '#171B19',
     colorMenuItemColor: '#F2F2F2',
     colorMenuItemSelectedBg: '#00B375',

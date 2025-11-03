@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import FormElement from './../components/Form/FormElement';
-import FormRenderer from './../components/Form/FormDynamicRenderer';
+import FormElement from './../../../components/Form/FormElement';
+import FormRenderer from './../../../components/Form/FormDynamicRenderer';
 import { Button, Select, } from 'antd';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router';

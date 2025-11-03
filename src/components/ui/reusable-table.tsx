@@ -107,7 +107,7 @@ export interface ReusableTableProps<RecordType> extends Omit<TableProps<RecordTy
     selectable?: boolean; // show selection checkboxes
     pagination?: TableProps<RecordType>['pagination'];
     globalSearch?: boolean; // if true, apply searchText filter across all string fields
-   
+
 }
 
 /**
@@ -365,6 +365,7 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
                 rowSelection={rowSelection as any}
                 size={(rest as any).size || 'middle'}
                 scroll={(rest as any).scroll}
+                className='custom-table-header'
 
             />
         </div>

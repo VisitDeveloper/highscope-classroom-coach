@@ -9,13 +9,19 @@ import { APP_ROUTES } from "./routes/routes";
 import MainLayout from "./components/layout/MainLayout";
 import ProtectedRoutes from "./routes/_protected-route";
 
-// Page Lazy Loading
+// General Page
 const Login = React.lazy(() => import("./pages/Login"));
 const Notfound = React.lazy(() => import("./pages/Notfound"));
 
 // ORG Admin Pages
-const DashboardORGAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
-const HomeOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Home"));
+const ManageSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/ManageSite"));
+const CreateSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/CreateSite"));
+const ReportsOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Reports"));
+const ResourcesOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Resources"));
+// const DashboardORGAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
+// const ManagSite = React.lazy(() => import("./pages/OrgAdmin/ManageSite"));
+// const ManageStassOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
+// const ManageClassRoomsOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
 
 // Site Admin Pages
 const AssessmentsSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Assessments"));
@@ -23,11 +29,10 @@ const MaterialsSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/MaterialsC
 const ReportSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Reports"));
 const ResourcesSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Resources"));
 
-
-
 // Teacher Pages
 const HomeTeacher = React.lazy(() => import("./pages/Teacher/Home"));
 const DashboardTeacher = React.lazy(() => import("./pages/Teacher/Dashboard"));
+
 
 function App() {
   const { isDark, toggleTheme } = useTheme();
@@ -39,7 +44,7 @@ function App() {
 
   // مثال: user فعلی
 
-  const [userRole, setUserRole] = useState<UserRole>("site-admin");
+  const [userRole, setUserRole] = useState<UserRole>("org-admin");
 
   const [isLogin, setIsLogin] = useState<boolean>(true)
 
@@ -75,10 +80,17 @@ function App() {
             }
           >
             <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
-              <Route path={APP_ROUTES.ORG_ADMIN_DASHBOARD} element={<DashboardORGAdmin />} />
-              <Route path={APP_ROUTES.ORG_ADMIN_HOME} element={<HomeOrgAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_SITE} element={<ManageSiteOrgAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_CREATE_SITE} element={<CreateSiteOrgAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_REPORTS} element={<ReportsOrgAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_RESOURCES} element={<ResourcesOrgAdmin />} />
+              {/* <Route path={APP_ROUTES.} element={<ManageSiteOrgAdmin />} /> */}
+              {/* <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_STAFF} element={<HomeOrgAdmin />} />
+              <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS} element={<HomeOrgAdmin />} />
+               */}
             </Route>
           </Route>
+
 
           {/* SITE ADMIN */}
           <Route
@@ -93,6 +105,7 @@ function App() {
               <Route path={APP_ROUTES.SITE_ADMIN_RESOURCES} element={<ResourcesSiteAdmin />} />
             </Route>
           </Route>
+
 
           {/* TEACHER */}
           <Route

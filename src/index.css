@@ -8,6 +8,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+}
+
+body{
+  background-color: #D1D5DB;
 }
 
 .my-modal .ant-modal-title {
@@ -19,13 +24,24 @@
   color: white !important;
 }
 
+.custom-table-header .ant-table-thead > tr > th {
+  background-color: #43B02A !important;
+  color: white !important;
+  font-weight: bold;
+  text-align: center;
+}
+
 
 /* menu Item Selected  */
 .ant-menu-item-selected {
-  background: #00A86B;
-  background: linear-gradient(90deg, rgba(0, 168, 107, 1) 2%, rgba(40, 201, 142, 1) 53%);
-  color: white !important;
-  box-shadow: 0 0 5px rgba(0, 168, 107, 0.8);
+  /* background: #00A86B; */
+  /* background: linear-gradient(90deg, rgba(0, 168, 107, 1) 2%, rgba(40, 201, 142, 1) 53%); */
+  /* color: white !important; */
+  /* box-shadow: 0 0 5px rgba(0, 168, 107, 0.8); */
+
+  color: #121212 !important;
+  background-color: #D1D5DB !important;
+  border-radius: 4px !important;
 }
 
 /* menu item tab index focus on */

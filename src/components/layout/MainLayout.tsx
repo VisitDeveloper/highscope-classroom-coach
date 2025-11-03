@@ -21,6 +21,7 @@ import i18n from "i18next";
 import { Book1, MenuBoard, Profile2User, SecurityUser, Stickynote } from 'iconsax-reactjs';
 import type { UserRole } from './../../routes/_protected-route';
 import { APP_ROUTES } from './../../routes/routes';
+import ClassRoomLogoComponent from './../icon/logo'
 
 const { Header, Sider, Content, Footer } = Layout;
 const { Paragraph } = Typography;
@@ -55,7 +56,7 @@ const MainLayout = (props: MainLayoutProps) => {
     const navigate = useNavigate();
     const location = useLocation();
     const { width } = useWindowSize();
-    const [userRole, setUserRole] = useState<UserRole>("site-admin");
+    const [userRole, setUserRole] = useState<UserRole>("org-admin");
 
     useEffect(() => {
         if (width < 768) {
@@ -93,36 +94,46 @@ const MainLayout = (props: MainLayoutProps) => {
     //  org-admin menu Item
     const orgAdminArrayMenuItem = [
         {
-            key: '/org-admin/home',
+            key: APP_ROUTES.ORG_ADMIN_MANAGE_SITE,
             icon: <ClusterOutlined />,
-            label: <span tabIndex={1}>
+            label: <span tabIndex={1} style={{
+                fontWeight: location.pathname === APP_ROUTES.ORG_ADMIN_MANAGE_SITE ? 600 : 500
+            }}>
                 {t("mainlayout.manage_site")}
             </span>,
         },
         {
-            key: '/site-admin/dashboard',
-            icon: <SecurityUser size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
-            label: <span tabIndex={2}>
+            key: APP_ROUTES.ORG_ADMIN_MANAGE_STAFF,
+            icon: <SecurityUser size="18" />,
+            label: <span tabIndex={2} style={{
+                fontWeight: location.pathname === APP_ROUTES.ORG_ADMIN_MANAGE_STAFF ? 600 : 500
+            }}>
                 {t("mainlayout.manage_staff")}
             </span>,
         },
         {
-            key: '/site-admin/home',
-            icon: <Profile2User size="20" color={location.pathname === '/' ? "#fff" : colorText} />,
-            label: <span tabIndex={3}>
+            key: APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS,
+            icon: <Profile2User size="18" />,
+            label: <span tabIndex={3} style={{
+                fontWeight: location.pathname === APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS ? 600 : 500
+            }}>
                 {t("mainlayout.manage_classroom")}
             </span>,
         },
         {
-            key: '/teacher/dashboard',
+            key: APP_ROUTES.ORG_ADMIN_REPORTS,
             icon: <SnippetsOutlined />,
-            label: <span tabIndex={4}>{t("mainlayout.reports")}</span>,
+            label: <span tabIndex={4} style={{
+                fontWeight: location.pathname === APP_ROUTES.ORG_ADMIN_REPORTS ? 600 : 500
+            }}>{t("mainlayout.reports")}</span>,
         },
 
         {
-            key: '/teacher/home',
-            icon: <Book1 size="20" color={location.pathname === '/resources' ? "#fff" : colorText} />,
-            label: <span tabIndex={5}>
+            key: APP_ROUTES.ORG_ADMIN_RESOURCES,
+            icon: <Book1 size="18" />,
+            label: <span tabIndex={5} style={{
+                fontWeight: location.pathname === APP_ROUTES.ORG_ADMIN_RESOURCES ? 600 : 500
+            }}>
                 {t("mainlayout.resources")}
             </span>,
         },
@@ -133,29 +144,37 @@ const MainLayout = (props: MainLayoutProps) => {
     const siteAdminArrayMenuItem = [
         {
             key: APP_ROUTES.SITE_ADMIN_ASSESSMENTS,
-            icon: <Stickynote size="20" color={location.pathname === APP_ROUTES.SITE_ADMIN_ASSESSMENTS ? "#fff" : colorText} />,
-            label: <span tabIndex={1}>
+            icon: <Stickynote size="18" />,
+            label: <span tabIndex={1} style={{
+                fontWeight: location.pathname === APP_ROUTES.SITE_ADMIN_ASSESSMENTS ? 600 : 500
+            }}>
                 {t("mainlayout.assessments")}
             </span>,
         },
         {
             key: APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST,
-            icon: <MenuBoard size="20" color={location.pathname === APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST ? "#fff" : colorText} />,
-            label: <span tabIndex={2}>
+            icon: <MenuBoard size="18" />,
+            label: <span tabIndex={2} style={{
+                fontWeight: location.pathname === APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST ? 600 : 500
+            }}>
                 {t("mainlayout.materials_checklist")}
             </span>,
         },
         {
             key: APP_ROUTES.SITE_ADMIN_REPORTS,
             icon: <SnippetsOutlined />,
-            label: <span tabIndex={3}>
+            label: <span tabIndex={3} style={{
+                fontWeight: location.pathname === APP_ROUTES.SITE_ADMIN_REPORTS ? '600' : 500
+            }}>
                 {t("mainlayout.reports")}
             </span>,
         },
         {
             key: APP_ROUTES.SITE_ADMIN_RESOURCES,
-            icon: <Book1 size="20" color={location.pathname === APP_ROUTES.SITE_ADMIN_RESOURCES ? "#fff" : colorText} />,
-            label: <span tabIndex={4}>
+            icon: <Book1 size="18" />,
+            label: <span tabIndex={4} style={{
+                fontWeight: location.pathname === APP_ROUTES.SITE_ADMIN_RESOURCES ? '600' : 500
+            }}>
                 {t("mainlayout.resources")}
             </span>,
         }
@@ -203,7 +222,7 @@ const MainLayout = (props: MainLayoutProps) => {
             >
 
                 <Typography>
-                    <Paragraph
+                    {/* <Paragraph
                         className="demo-logo-vertical font-bold text-center mt-7! "
                         style={{
                             fontFamily: "Comic Neue, cursive",
@@ -212,8 +231,10 @@ const MainLayout = (props: MainLayoutProps) => {
 
                         }}>
                         Classroom Coach
-                    </Paragraph>
+                    </Paragraph> */}
                     <div>
+                        <ClassRoomLogoComponent width={'100%'} height={'100'}
+                        />
 
                     </div>
                 </Typography>
@@ -231,7 +252,7 @@ const MainLayout = (props: MainLayoutProps) => {
                 />
             </Sider>
             <Layout>
-                <Header className={`sticky top-0 z-10 w-full flex items-center h-[90px] p-4! border-b! ${isDark ? ' border-b-white!' : 'border-b-black!'}`} style={{ background: colorPrimary }}>
+                <Header className={`sticky top-0 z-10 w-full flex items-center h-[70px]! p-4! border-b! ${isDark ? ' border-b-white!' : 'border-b-black!'}`} style={{ background: colorPrimary }}>
                     <div className='flex flex-row justify-between items-center w-full '>
 
                         <div className='flex flex-row gap-[15] items-center '>
@@ -243,7 +264,7 @@ const MainLayout = (props: MainLayoutProps) => {
                             />
                         </div>
                         <div className={`flex flex-row items-center md:gap-2 gap-1`} >
-                            <Switch size='small' checked={isDark} className='border! border-solid p-1' onChange={toggleTheme}
+                            <Switch size='small' checked={isDark} className='border! border-solid border-white! p-1' onChange={toggleTheme}
                                 checkedChildren={<SunOutlined />}
                                 unCheckedChildren={<MoonOutlined />} />
 
@@ -255,7 +276,7 @@ const MainLayout = (props: MainLayoutProps) => {
                                     setLanguage(value);
                                     i18n.changeLanguage(value);
                                 }}
-                                suffixIcon={<GlobalOutlined style={{ color: colorTextSecondary }} />}
+                                suffixIcon={<GlobalOutlined style={{ color: '#F6F6F6' }} />}
                                 className='custom-select shadow-none! border-2! border-solid! border-white! rounded-sm text-white!'
                                 style={{
                                     backgroundColor: colorPrimary,
@@ -293,10 +314,14 @@ const MainLayout = (props: MainLayoutProps) => {
 
                     </div>
                 </Header>
+                <div className='p-1! my-0.5! mx-4!'>
+                    
+                </div>
+
                 <Content
                     className='min-h-[280px] p-6! my-3.5! mx-4!'
                     style={{
-                        background: colorBgContainer,
+                        background: colorBgBase,
                         borderRadius: borderRadiusLG,
                     }}
                 >

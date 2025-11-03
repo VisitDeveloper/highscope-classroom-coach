@@ -11,6 +11,12 @@ export const APP_ROUTES = {
     // org-admin rule routes
     ORG_ADMIN_DASHBOARD: `${UserRoleConstant.orgAdmin}/dashboard`,
     ORG_ADMIN_HOME: `${UserRoleConstant.orgAdmin}/home`,
+    ORG_ADMIN_MANAGE_SITE: `${UserRoleConstant.orgAdmin}/manage-site`,
+    ORG_ADMIN_CREATE_SITE: `${UserRoleConstant.orgAdmin}/manage-site/create`,
+    ORG_ADMIN_MANAGE_STAFF: `${UserRoleConstant.orgAdmin}/manage-staff`,
+    ORG_ADMIN_MANAGE_CLASSROOMS: `${UserRoleConstant.orgAdmin}/manage-classroms`,
+    ORG_ADMIN_REPORTS: `${UserRoleConstant.orgAdmin}/reports`,
+    ORG_ADMIN_RESOURCES: `${UserRoleConstant.orgAdmin}/resources`,
 
     // site-admin rule routes
     SITE_ADMIN_ASSESSMENTS: `${UserRoleConstant.siteAdmin}/assessments`,

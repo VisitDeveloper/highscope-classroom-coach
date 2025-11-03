@@ -1,17 +1,18 @@
-import { useState } from 'react';
-import ReusableTable from './../ui/reusable-table';
+import { useEffect, useState } from 'react';
+import ReusableTable from './../../../components/ui/reusable-table';
 import { Button, Input, theme } from 'antd';
-import TitlePage from './title-page';
+import TitlePage from './../../../components/common/title-page';
 import {
     FilterOutlined,
     PlusOutlined,
 } from '@ant-design/icons';
-import { useWindowSize } from './../../hooks/use-size';
-import ModalCommon from '../ui/modal';
-// import CreateClassRoomForm from './../../pages/CreateClassRoom';
+import { useWindowSize } from './../../../hooks/use-size';
+import ModalCommon from './../../../components/ui/modal';
 import { useNavigate } from 'react-router';
-// import type { ColumnsType } from 'antd/es/table';
-import ModalCreateClassRoomForm from './../../pages/ModalCreateClassRoom';
+import ModalCreateClassRoomForm from './../Modal/ModalCreateClassRoom';
+import { APP_ROUTES } from './../../../routes/routes';
+import type { ColumnsType } from 'antd/es/table';
+import { ManageSiteService } from './../../../services/manage-sites';
 
 
 interface Site {
@@ -23,16 +24,16 @@ interface Site {
     operation: string;
 }
 
-// const headerStyle: React.CSSProperties = {
-//     backgroundColor: '#001529',
-//     color: 'white',
-//     fontWeight: 600,
-//     textAlign: 'center',
-// };
+interface ManagTableSharePage {
+    serviceName?: Record<string, string>;
 
-const UsersTable = () => {
+}
+
+const PostServices = new ManageSiteService()
+
+const ManageSiteTable = () => {
     const {
-        token: { colorPrimary },
+        token: { colorText },
     } = theme.useToken();
     const [searchText, setSearchText] = useState('');
     const [isOpenFilter, setIsOpenFilter] = useState<boolean>(false);
@@ -85,30 +86,36 @@ const UsersTable = () => {
         },
     ]);
 
-    const columns = [
+    const columns: ColumnsType<Site> = [
         {
             title: 'Entity Name',
             dataIndex: 'entityName',
+            align: 'center',
         },
         {
             title: 'Site ID',
             dataIndex: 'siteId',
+            align: 'center',
         },
         {
             title: 'Site Name',
             dataIndex: 'siteName',
+            align: 'center',
         },
         {
             title: 'Timezone',
             dataIndex: 'timezone',
+            align: 'center',
         },
         {
             title: 'Hours Of Operation',
             dataIndex: 'operation',
+            align: 'center',
         },
         {
             title: 'Classroms',
             key: 'action',
+            align: 'center',
             render: (_: any, record: Site) => (
                 <Button
                     icon={<PlusOutlined />}
@@ -124,6 +131,20 @@ const UsersTable = () => {
             ),
         },
     ];
+
+    useEffect(() => {
+        (async () => {
+            try {
+                const getLists = await PostServices.getList({
+                    
+                })
+                console.log('lsit', getLists.data)
+            } catch (error) {
+                console.log(error)
+            }
+
+        })()
+    }, [])
 
     // const columnsAddStyle = columns.map(col => ({
     //     ...col,
@@ -145,15 +166,13 @@ const UsersTable = () => {
                 title="Manage Site"
                 elements={<>
                     <Button type='primary' size='large' onClick={() => {
-                        // setOpenModalCreateClassRoom(true)
-                        navigate('/create-site')
+                        navigate(APP_ROUTES.ORG_ADMIN_CREATE_SITE)
                     }}>
                         <PlusOutlined />
                     </Button>
 
                     <Button type='default' size='large'
                         onClick={() => setIsOpenFilter(!isOpenFilter)}
-
                     >
                         <FilterOutlined />
                     </Button>
@@ -180,9 +199,9 @@ const UsersTable = () => {
                 columns={columns}
                 dataSource={users}
                 searchText={searchText}
-                inlineEdit={true}
+                inlineEdit={false}
                 withActions={true}
-                selectable={true}
+                selectable={false}
                 globalSearch={true}
                 pagination={{
                     style: {
@@ -194,12 +213,11 @@ const UsersTable = () => {
                     onChange: (_, pageSize) => setPagination({ pageSize: pageSize })
                 }}
                 style={{
-                    border: `1px solid ${colorPrimary}`,
-                    borderRadius: '8px',
-                    padding: '10px 0px',
+                    border: `1px solid ${colorText}`,
+                    borderRadius: '4px',
+                    padding: '0px 0px 10px 0px',
 
                 }}
-                className='shadow-lg'
                 scroll={{ x: 1200 }}
                 exportOptions={{
                     enableCsv: true,
@@ -208,7 +226,7 @@ const UsersTable = () => {
                     fieldsToExport: ['entityName', 'siteId', 'siteName'],
                 }}
                 onDelete={handleDelete}
-                onEdit={() => navigate('/resources')}
+                onEdit={() => navigate(APP_ROUTES.ORG_ADMIN_CREATE_SITE)}
             />
 
             {openModalCreateClassRoom ?
@@ -227,4 +245,4 @@ const UsersTable = () => {
     );
 };
 
-export default UsersTable;
+export default ManageSiteTable;

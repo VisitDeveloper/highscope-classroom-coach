@@ -11,7 +11,7 @@ interface ProtectedRoutesProps {
 }
 
 const defaultDashboards: Record<NonNullable<ProtectedRoutesProps["userRole"]>, string> = {
-    "org-admin": APP_ROUTES.ORG_ADMIN_HOME,
+    "org-admin": APP_ROUTES.ORG_ADMIN_MANAGE_SITE,
     "site-admin": APP_ROUTES.SITE_ADMIN_ASSESSMENTS,
     "teacher": APP_ROUTES.TEACHER_HOME,
 };

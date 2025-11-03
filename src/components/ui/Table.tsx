@@ -317,6 +317,7 @@ const App: React.FC<TableUIProps> = ({ searchText }) => {
 
             title: 'Action',
             dataIndex: 'action',
+            align:'center',
             render: (_, record) => (
                 <div style={{ display: 'flex', flexDirection: 'row', gap: 5 }}>
                     <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>

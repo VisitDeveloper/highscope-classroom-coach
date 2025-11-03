@@ -94,16 +94,16 @@
 
 
 import { useState } from 'react';
-import ReusableTable from './../components/ui/reusable-table';
+import ReusableTable from './../../components/ui/reusable-table';
 import { Button, Input, theme } from 'antd';
-import TitlePage from './../components/common/title-page';
+import TitlePage from './../../components/common/title-page';
 import {
     FilterOutlined,
     PlusOutlined,
 } from '@ant-design/icons';
-import { useWindowSize } from './../hooks/use-size';
-import ModalCommon from './../components/ui/modal';
-import CreateClassRoomForm from './../pages/CreateClassRoom';
+import { useWindowSize } from './../../hooks/use-size';
+import ModalCommon from './../../components/ui/modal';
+import ModalCreateClassRoomForm from './Modal/ModalCreateClassRoom';
 import { useNavigate } from 'react-router';
 // import type { ColumnsType } from 'antd/es/table';
 
@@ -310,7 +310,7 @@ const UsersTable = () => {
                         openModal={openModalCreateClassRoom}
                         onClose={() => setOpenModalCreateClassRoom(false)}
                     >
-                        <CreateClassRoomForm />
+                        <ModalCreateClassRoomForm />
                     </ModalCommon>
                 </>) : null
 
