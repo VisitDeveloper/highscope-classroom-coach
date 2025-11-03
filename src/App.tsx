@@ -63,7 +63,7 @@ function App() {
               <Navigate
                 to={
                   userRole === "org-admin"
-                    ? APP_ROUTES.ORG_ADMIN_HOME
+                    ? APP_ROUTES.ORG_ADMIN_MANAGE_SITE
                     : userRole === "site-admin"
                       ? APP_ROUTES.SITE_ADMIN_ASSESSMENTS
                       : APP_ROUTES.TEACHER_HOME
