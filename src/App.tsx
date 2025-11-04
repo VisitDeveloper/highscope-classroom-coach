@@ -19,6 +19,7 @@ const ManageSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/ManageSite"
 const CreateSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/CreateSite"));
 const ReportsOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Reports"));
 const ResourcesOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Resources"));
+const ManageStaff = React.lazy(() => import("./pages/OrgAdmin/ManageStaff"))
 // const DashboardORGAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
 // const ManagSite = React.lazy(() => import("./pages/OrgAdmin/ManageSite"));
 // const ManageStassOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
@@ -37,10 +38,9 @@ const DashboardTeacher = React.lazy(() => import("./pages/Teacher/Dashboard"));
 const TestErrorPage = React.lazy(() => import("./pages/testPage"));
 
 function App() {
-  const { isDark, toggleTheme } = useTheme();
   const themeConfig = {
-    algorithm: isDark ? theme.darkAlgorithm : theme.defaultAlgorithm,
-    token: isDark ? darkTokens : lightTokens,
+    algorithm: theme.defaultAlgorithm,
+    token: lightTokens,
   };
 
   const handleError = (error: Error, info: React.ErrorInfo) => {
@@ -87,9 +87,14 @@ function App() {
                 <ProtectedRoutes isLogin={isLogin} isAllowed={userRole === "org-admin"} userRole={userRole} />
               }
             >
-              <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
+              {/* isDark={isDark} toggleTheme={toggleTheme} */}
+              <Route element={<MainLayout />}>
                 <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_SITE} element={<ManageSiteOrgAdmin />} />
                 <Route path={APP_ROUTES.ORG_ADMIN_CREATE_SITE} element={<CreateSiteOrgAdmin />} />
+
+                <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_STAFF} element={<ManageStaff />} />
+                <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS} element={<CreateSiteOrgAdmin />} />
+
                 <Route path={APP_ROUTES.ORG_ADMIN_REPORTS} element={<ReportsOrgAdmin />} />
                 <Route path={APP_ROUTES.ORG_ADMIN_RESOURCES} element={<ResourcesOrgAdmin />} />
                 <Route path={'/org-admin/test'} element={<TestErrorPage />} />
@@ -109,7 +114,7 @@ function App() {
                 <ProtectedRoutes isLogin={isLogin} isAllowed={userRole === "site-admin"} userRole={userRole} />
               }
             >
-              <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
+              <Route element={<MainLayout />}>
                 <Route path={APP_ROUTES.SITE_ADMIN_ASSESSMENTS} element={<AssessmentsSiteAdmin />} />
                 <Route path={APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST} element={<MaterialsSiteAdmin />} />
                 <Route path={APP_ROUTES.SITE_ADMIN_REPORTS} element={<ReportSiteAdmin />} />
@@ -124,7 +129,7 @@ function App() {
                 <ProtectedRoutes isLogin={isLogin} isAllowed={userRole === "teacher"} userRole={userRole} />
               }
             >
-              <Route element={<MainLayout isDark={isDark} toggleTheme={toggleTheme} />}>
+              <Route element={<MainLayout />}>
                 <Route path={APP_ROUTES.TEACHER_DASHBOARD} element={<DashboardTeacher />} />
                 <Route path={APP_ROUTES.TEACHER_HOME} element={<HomeTeacher />} />
               </Route>

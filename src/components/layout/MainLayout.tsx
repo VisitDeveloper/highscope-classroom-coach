@@ -24,7 +24,6 @@ import { APP_ROUTES } from './../../routes/routes';
 import ClassRoomLogoComponent from './../icon/logo'
 
 const { Header, Sider, Content, Footer } = Layout;
-const { Paragraph } = Typography;
 const { Option } = Select;
 
 interface ArrayButtonOnHeaderType {
@@ -39,15 +38,15 @@ const siderStyle: React.CSSProperties = {
     scrollbarGutter: 'stable',
 };
 
-interface MainLayoutProps {
-    toggleTheme: (checked: boolean) => void;
-    isDark: boolean;
-}
-
-const MainLayout = (props: MainLayoutProps) => {
-    const { toggleTheme, isDark } = props;
+// interface MainLayoutProps {
+//     toggleTheme: (checked: boolean) => void;
+//     isDark: boolean;
+// }
+// props: MainLayoutProps
+const MainLayout = () => {
+    // const { toggleTheme, isDark } = props;
     const {
-        token: { colorBgContainer, borderRadiusLG, colorPrimary, colorText, colorBgBase, colorTextSecondary },
+        token: { borderRadiusLG, colorPrimary, colorBgBase, colorTextSecondary },
     } = theme.useToken();
     const { t } = useTranslation();
     const [language, setLanguage] = useState(i18n.language || 'en');
@@ -264,9 +263,9 @@ const MainLayout = (props: MainLayoutProps) => {
                             />
                         </div>
                         <div className={`flex flex-row items-center md:gap-2 gap-1`} >
-                            <Switch size='small' checked={isDark} className='border! border-solid border-white! p-1' onChange={toggleTheme}
+                            {/* <Switch size='small' checked={isDark} className='border! border-solid border-white! p-1' onChange={toggleTheme}
                                 checkedChildren={<SunOutlined />}
-                                unCheckedChildren={<MoonOutlined />} />
+                                unCheckedChildren={<MoonOutlined />} /> */}
 
 
                             <Select

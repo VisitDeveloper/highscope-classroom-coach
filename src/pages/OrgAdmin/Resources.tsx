@@ -39,7 +39,7 @@ export default function Resources() {
                             <div className='flex flex-row gap-4'>
                                 <CalendarOutlined style={{ fontSize: 20, color: colorBorder }} />
                                 <span className='font-medium text-1xl' style={{ color: colorBorder }}>
-                                    Sep 5, 2019, 12:27 PM
+                                    Nov 4, 2025, 12:27 PM
                                 </span>
                             </div>
 
@@ -71,7 +71,7 @@ export default function Resources() {
                             <div className='flex flex-row gap-4'>
                                 <CalendarOutlined style={{ fontSize: 20, color: colorBorder }} />
                                 <span className='font-medium text-1xl' style={{ color: colorBorder }}>
-                                    Sep 5, 2019, 12:27 PM
+                                    Nov 4, 2025, 14:30 PM
                                 </span>
                             </div>
 
@@ -103,7 +103,7 @@ export default function Resources() {
                             <div className='flex flex-row gap-4'>
                                 <CalendarOutlined style={{ fontSize: 20, color: colorBorder }} />
                                 <span className='font-medium text-1xl' style={{ color: colorBorder }}>
-                                    Sep 5, 2019, 12:27 PM
+                                    Nov 5, 2025, 15:00 PM
                                 </span>
                             </div>
 
@@ -135,7 +135,7 @@ export default function Resources() {
                             <div className='flex flex-row gap-4'>
                                 <CalendarOutlined style={{ fontSize: 20, color: colorBorder }} />
                                 <span className='font-medium text-1xl' style={{ color: colorBorder }}>
-                                    Sep 5, 2019, 12:27 PM
+                                    Nov 5, 2025, 15:30 PM
                                 </span>
                             </div>
 
