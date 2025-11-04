@@ -197,34 +197,34 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
     const actionColumn = useMemo(() => {
         if (!withActions) return [];
         return [
-            {
-                title: 'Action',
-                dataIndex: '__action',
-                width: 100,
-                fixed: undefined,
-                render: (_: any, record: RecordType) => (
-                    <Space size="small">
-                        <Tooltip title="Edit">
-                            <Button
-                                type="text"
-                                icon={<EditOutlined />}
-                                onClick={() => {
-                                    if (inlineEdit) {
-                                        // attempt to trigger inline (no-op: inline handled by clicking cell)
-                                        // fallback to onEdit callback
-                                        onEdit && onEdit(record);
-                                    } else {
-                                        onEdit && onEdit(record);
-                                    }
-                                }}
-                            />
-                        </Tooltip>
-                        <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-                            <Button type="text" icon={<DeleteOutlined />} />
-                        </Popconfirm>
-                    </Space>
-                ),
-            } as any,
+            // {
+            //     title: 'Action',
+            //     dataIndex: '__action',
+            //     width: 100,
+            //     fixed: undefined,
+            //     render: (_: any, record: RecordType) => (
+            //         <Space size="small">
+            //             <Tooltip title="Edit">
+            //                 <Button
+            //                     type="text"
+            //                     icon={<EditOutlined />}
+            //                     onClick={() => {
+            //                         if (inlineEdit) {
+            //                             // attempt to trigger inline (no-op: inline handled by clicking cell)
+            //                             // fallback to onEdit callback
+            //                             onEdit && onEdit(record);
+            //                         } else {
+            //                             onEdit && onEdit(record);
+            //                         }
+            //                     }}
+            //                 />
+            //             </Tooltip>
+            //             <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+            //                 <Button type="text" icon={<DeleteOutlined />} />
+            //             </Popconfirm>
+            //         </Space>
+            //     ),
+            // } as any,
         ];
     }, [withActions, inlineEdit, handleDelete, onEdit]);
 

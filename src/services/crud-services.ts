@@ -51,13 +51,13 @@ export abstract class CrudService<
 
     delete(entityId: string) {
         return this.axiosInstanceWithToken.delete(
-            `/${this.entityBaseUrl}/remove/${entityId}`
+            `/${this.entityBaseUrl}/${entityId}`
         );
     }
 
     logicDelete(entityId: string) {
         return this.axiosInstanceWithToken.delete(
-            `/${this.entityBaseUrl}/remove/logic/${entityId}`
+            `/${this.entityBaseUrl}/${entityId}`
         );
     }
 }

@@ -26,7 +26,6 @@ import {
 import { cn } from "../../lib/utils";
 
 const { Header, Sider, Content, Footer } = Layout;
-const { Paragraph } = Typography;
 const { Option } = Select;
 
 interface ArrayButtonOnHeaderType {
@@ -41,26 +40,19 @@ const siderStyle: React.CSSProperties = {
   scrollbarGutter: "stable",
 };
 
-interface MainLayoutProps {
-  toggleTheme: (checked: boolean) => void;
-  isDark: boolean;
-}
-
-const MainLayout = (props: MainLayoutProps) => {
-  const { toggleTheme, isDark } = props;
-  const {
-    token: {
-      colorBgContainer,
-      borderRadiusLG,
-      colorPrimary,
-      colorText,
-      colorBgBase,
-      colorTextSecondary,
-    },
-  } = theme.useToken();
-  const { t } = useTranslation();
-  const [language, setLanguage] = useState(i18n.language || "en");
-  const [collapsed, setCollapsed] = useState(false);
+// interface MainLayoutProps {
+//     toggleTheme: (checked: boolean) => void;
+//     isDark: boolean;
+// }
+// props: MainLayoutProps
+const MainLayout = () => {
+    // const { toggleTheme, isDark } = props;
+    const {
+        token: { borderRadiusLG, colorPrimary, colorBgBase, colorTextSecondary },
+    } = theme.useToken();
+    const { t } = useTranslation();
+    const [language, setLanguage] = useState(i18n.language || 'en');
+    const [collapsed, setCollapsed] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -375,7 +367,7 @@ const MainLayout = (props: MainLayoutProps) => {
             </div>
             <div className={`flex flex-row items-center md:gap-2 gap-1`}>
               {/* <Switch
-                size="small"
+               {/*  size="small"
                 checked={isDark}
                 className="border! border-solid border-white! p-1"
                 onChange={toggleTheme}
