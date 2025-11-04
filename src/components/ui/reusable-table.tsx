@@ -4,6 +4,7 @@ import { Table, Button, Space, Popconfirm, Tooltip, Form, Input } from 'antd';
 import { DeleteOutlined, EditOutlined, DownloadOutlined } from '@ant-design/icons';
 import type { InputRef, GetRef } from 'antd';
 import * as XLSX from 'xlsx';
+import { TrashIcon } from '@phosphor-icons/react';
 
 type FormInstance<T> = GetRef<typeof Form<T>>;
 
@@ -107,7 +108,7 @@ export interface ReusableTableProps<RecordType> extends Omit<TableProps<RecordTy
     selectable?: boolean; // show selection checkboxes
     pagination?: TableProps<RecordType>['pagination'];
     globalSearch?: boolean; // if true, apply searchText filter across all string fields
-
+    isActiveDelete?: boolean;
 }
 
 /**
@@ -162,6 +163,7 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
         selectable = false,
         pagination = { pageSize: 10 },
         globalSearch = true,
+        isActiveDelete = false,
         ...rest
     } = props;
 
@@ -196,36 +198,38 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
     // Inject action column if requested
     const actionColumn = useMemo(() => {
         if (!withActions) return [];
-        return [
-            // {
-            //     title: 'Action',
-            //     dataIndex: '__action',
-            //     width: 100,
-            //     fixed: undefined,
-            //     render: (_: any, record: RecordType) => (
-            //         <Space size="small">
-            //             <Tooltip title="Edit">
-            //                 <Button
-            //                     type="text"
-            //                     icon={<EditOutlined />}
-            //                     onClick={() => {
-            //                         if (inlineEdit) {
-            //                             // attempt to trigger inline (no-op: inline handled by clicking cell)
-            //                             // fallback to onEdit callback
-            //                             onEdit && onEdit(record);
-            //                         } else {
-            //                             onEdit && onEdit(record);
-            //                         }
-            //                     }}
-            //                 />
-            //             </Tooltip>
-            //             <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
-            //                 <Button type="text" icon={<DeleteOutlined />} />
-            //             </Popconfirm>
-            //         </Space>
-            //     ),
-            // } as any,
-        ];
+        if (isActiveDelete) {
+            return [
+                {
+                    title: 'Action',
+                    dataIndex: '__action',
+                    width: 100,
+                    fixed: undefined,
+                    render: (_: any, record: RecordType) => (
+                        <Space size="small">
+                            <Tooltip title="Edit">
+                                <Button
+                                    type="text"
+                                    icon={<EditOutlined />}
+                                    onClick={() => {
+                                        if (inlineEdit) {
+                                            // attempt to trigger inline (no-op: inline handled by clicking cell)
+                                            // fallback to onEdit callback
+                                            onEdit && onEdit(record);
+                                        } else {
+                                            onEdit && onEdit(record);
+                                        }
+                                    }}
+                                />
+                            </Tooltip>
+                            <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record.key)}>
+                                <Button type="text" icon={<TrashIcon size={18} />} />
+                            </Popconfirm>
+                        </Space>
+                    ),
+                } as any,
+            ];
+        }
     }, [withActions, inlineEdit, handleDelete, onEdit]);
 
     // Compose columns with editable cell support
@@ -235,7 +239,7 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
         // اول اکشن هست بعد ستون های عدی 
         // const finalCols = withActions ? [...actionColumn, ...cols] : cols;
         // اول ستون های دیگه بعد اکشن 
-        const finalCols = withActions ? [...cols, ...actionColumn] : cols;
+        const finalCols = withActions ? [...cols, ...(actionColumn ?? [])] : cols;
 
         return finalCols.map(col => {
             const editable = (col as any).editable;
@@ -366,9 +370,9 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
                 size={(rest as any).size || 'middle'}
                 scroll={(rest as any).scroll}
                 className='custom-table-header'
-                // style={{
-                //     textTransform: 'capitalize'
-                // }}
+            // style={{
+            //     textTransform: 'capitalize'
+            // }}
 
             />
         </div>

@@ -16,12 +16,12 @@ import { ManageSiteService } from './../../../services/manage-sites';
 
 
 interface Site {
-    key: string;
-    entityName: string;
-    siteId: string;
-    siteName: string;
-    timezone: string;
-    operation: string;
+    key: number | string,
+    organizationName?: string;
+    siteName?: string;
+    classroomName?: string;
+    classroomTeacher?: string;
+    status: any;
 }
 
 interface ManagTableSharePage {
@@ -31,7 +31,7 @@ interface ManagTableSharePage {
 
 const PostServices = new ManageSiteService()
 
-const ManageSiteTable = () => {
+const ManageClassroomTable = () => {
     const {
         token: { colorText },
     } = theme.useToken();
@@ -46,55 +46,90 @@ const ManageSiteTable = () => {
     const [users, setUsers] = useState<Site[]>([
         {
             key: '1',
-            entityName: 'Global Corp',
-            siteId: 'GC001',
-            siteName: 'New York Office',
-            timezone: 'EST',
-            operation: '9:00 AM - 5:00 PM',
+            organizationName: 'Greenwood Academy',
+            siteName: 'North Campus',
+            classroomName: 'Room A1',
+            classroomTeacher: 'Mrs. Johnson',
+            status: 'Active',
         },
         {
             key: '2',
-            entityName: 'Global Corp',
-            siteId: 'GC002',
-            siteName: 'London Office',
-            timezone: 'GMT',
-            operation: '8:00 AM - 4:00 PM',
+            organizationName: 'Greenwood Academy',
+            siteName: 'South Campus',
+            classroomName: 'Room B2',
+            classroomTeacher: 'Mr. Smith',
+            status: 'Inactive',
         },
         {
             key: '3',
-            entityName: 'Tech Solutions',
-            siteId: 'TS101',
-            siteName: 'San Francisco Office',
-            timezone: 'PST',
-            operation: '10:00 AM - 6:00 PM',
+            organizationName: 'Sunrise School',
+            siteName: 'Main Building',
+            classroomName: 'Room 101',
+            classroomTeacher: 'Ms. Williams',
+            status: 'Active',
         },
         {
             key: '4',
-            entityName: 'Tech Solutions',
-            siteId: 'TS102',
-            siteName: 'Berlin Office',
-            timezone: 'CET',
-            operation: '9:00 AM - 5:00 PM',
+            organizationName: 'Sunrise School',
+            siteName: 'Annex Building',
+            classroomName: 'Room 102',
+            classroomTeacher: 'Mr. Davis',
+            status: 'Under Maintenance',
         },
         {
             key: '5',
-            entityName: 'Innovate Ltd',
-            siteId: 'IN500',
-            siteName: 'Tokyo Office',
-            timezone: 'JST',
-            operation: '9:30 AM - 6:30 PM',
+            organizationName: 'Horizons Institute',
+            siteName: 'West Wing',
+            classroomName: 'Room C3',
+            classroomTeacher: 'Mrs. Miller',
+            status: 'Active',
+        },
+        {
+            key: '6',
+            organizationName: 'Horizons Institute',
+            siteName: 'East Wing',
+            classroomName: 'Room D4',
+            classroomTeacher: 'Dr. Wilson',
+            status: 'Inactive',
+        },
+        {
+            key: '7',
+            organizationName: 'Innovation High',
+            siteName: 'Block A',
+            classroomName: 'Lab 1',
+            classroomTeacher: 'Mr. Brown',
+            status: 'Active',
+        },
+        {
+            key: '8',
+            organizationName: 'Innovation High',
+            siteName: 'Block B',
+            classroomName: 'Lab 2',
+            classroomTeacher: 'Ms. Taylor',
+            status: 'Inactive',
+        },
+        {
+            key: '9',
+            organizationName: 'Future Leaders School',
+            siteName: 'Central Hall',
+            classroomName: 'Room E5',
+            classroomTeacher: 'Mrs. Anderson',
+            status: 'Active',
+        },
+        {
+            key: '10',
+            organizationName: 'Future Leaders School',
+            siteName: 'Science Block',
+            classroomName: 'Room F6',
+            classroomTeacher: 'Mr. Thomas',
+            status: 'Under Review',
         },
     ]);
 
     const columns: ColumnsType<Site> = [
         {
-            title: 'Entity Name',
-            dataIndex: 'entityName',
-            align: 'center',
-        },
-        {
-            title: 'Site ID',
-            dataIndex: 'siteId',
+            title: 'Organization Name',
+            dataIndex: 'organizationName',
             align: 'center',
         },
         {
@@ -103,33 +138,21 @@ const ManageSiteTable = () => {
             align: 'center',
         },
         {
-            title: 'Time zone',
-            dataIndex: 'timezone',
+            title: 'Classroom Name',
+            dataIndex: 'classroomName',
             align: 'center',
         },
         {
-            title: 'Hours Of Operation',
-            dataIndex: 'operation',
+            title: 'Classroom Teacher',
+            dataIndex: 'classroomTeacher',
             align: 'center',
         },
         {
-            title: 'Classroms',
-            key: 'action',
+            title: 'Status',
+            dataIndex: 'status',
             align: 'center',
-            render: (_: any, record: Site) => (
-                <Button
-                    icon={<PlusOutlined />}
-                    type="primary"
-                    onClick={() => {
-                        console.log('Custom button clicked for', record.siteName);
-                        // navigate(`/create-classroom`);
-                        setOpenModalCreateClassRoom(true)
-                    }}
-                >
-                    Add Classroom
-                </Button>
-            ),
         },
+
     ];
 
     useEffect(() => {
@@ -161,7 +184,7 @@ const ManageSiteTable = () => {
     return (
         <div>
             <TitlePage
-                title="Manage Site"
+                title="Manage ClassRoom"
                 elements={<>
                     <Button type='primary' size='large' onClick={() => {
                         navigate(APP_ROUTES.ORG_ADMIN_CREATE_SITE)
@@ -222,7 +245,7 @@ const ManageSiteTable = () => {
                     enableCsv: true,
                     enableXlsx: true,
                     fileName: 'site_management',
-                    fieldsToExport: ['entityName', 'siteId', 'siteName'],
+                    fieldsToExport: ['key', 'organizationName', 'siteName', 'classroomName', 'classroomTeacher', 'status'],
                 }}
                 onDelete={handleDelete}
                 onEdit={() => navigate(APP_ROUTES.ORG_ADMIN_CREATE_SITE)}
@@ -244,4 +267,4 @@ const ManageSiteTable = () => {
     );
 };
 
-export default ManageSiteTable;
+export default ManageClassroomTable;

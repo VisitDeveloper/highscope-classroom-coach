@@ -16,6 +16,7 @@ const Notfound = React.lazy(() => import("./pages/Notfound"));
 
 // ORG Admin Pages
 const ManageSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/ManageSite"));
+const ManageClassroom = React.lazy(() => import("./pages/OrgAdmin/ManageClassroom"));
 const CreateSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/CreateSite"));
 const ReportsOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Reports"));
 const ResourcesOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Resources"));
@@ -94,7 +95,7 @@ function App() {
                 <Route path={APP_ROUTES.ORG_ADMIN_CREATE_SITE} element={<CreateSiteOrgAdmin />} />
 
                 <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_STAFF} element={<ManageStaff />} />
-                <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS} element={<CreateSiteOrgAdmin />} />
+                <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS} element={<ManageClassroom />} />
 
                 <Route path={APP_ROUTES.ORG_ADMIN_REPORTS} element={<ReportsOrgAdmin />} />
                 <Route path={APP_ROUTES.ORG_ADMIN_RESOURCES} element={<ResourcesOrgAdmin />} />

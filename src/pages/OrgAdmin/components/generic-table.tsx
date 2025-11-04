@@ -139,7 +139,7 @@ const GenericTable = <T extends {
             render: (_: any, record: T) => (
                 <Space>
                     <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record)}>
-                        <Button type="text" danger icon={<TrashIcon size={18} />} />
+                        <Button type="text" icon={<TrashIcon size={18} />} />
                     </Popconfirm>
                 </Space>
             ),
