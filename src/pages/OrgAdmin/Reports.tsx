@@ -20,7 +20,7 @@ function Reports() {
                             Classroom Report
                         </Typography.Title>
 
-                        <Typography.Paragraph className='ml-4! mt-2! pr-5! text-justify'>
+                        <Typography.Paragraph className='ml-4! mt-2! pr-5! '>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, unde sapiente consequatur iusto magni sed atque ea ex similique reprehenderit cupiditate illum odit nihil nostrum ad id eum quo ipsa?
                         </Typography.Paragraph>
                     </div>
@@ -37,7 +37,7 @@ function Reports() {
                             Export data to CSV file
                         </Typography.Title>
 
-                        <Typography.Paragraph className='ml-4! mt-2! pr-5! text-justify'>
+                        <Typography.Paragraph className='ml-4! mt-2! pr-5! '>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, unde sapiente consequatur iusto magni sed atque ea ex similique reprehenderit cupiditate illum odit nihil nostrum ad id eum quo ipsa?
                         </Typography.Paragraph>
                     </div>
@@ -56,7 +56,7 @@ function Reports() {
                             Planing Report
                         </Typography.Title>
 
-                        <Typography.Paragraph className='ml-4! mt-2! pr-5! text-justify'>
+                        <Typography.Paragraph className='ml-4! mt-2! pr-5!  '>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, unde sapiente consequatur iusto magni sed atque ea ex similique reprehenderit cupiditate illum odit nihil nostrum ad id eum quo ipsa?
                         </Typography.Paragraph>
                     </div>
@@ -71,7 +71,7 @@ function Reports() {
                         <Typography.Title level={4} className='ml-4! mt-2!'>
                             Completion Report
                         </Typography.Title>
-                        <Typography.Paragraph className='ml-4! mt-2! pr-5! text-justify'>
+                        <Typography.Paragraph className='ml-4! mt-2! pr-5!  '>
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Incidunt, unde sapiente consequatur iusto magni sed atque ea ex similique reprehenderit cupiditate illum odit nihil nostrum ad id eum quo ipsa?
                         </Typography.Paragraph>
                     </div>
