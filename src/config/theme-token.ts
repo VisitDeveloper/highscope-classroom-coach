@@ -26,8 +26,8 @@ interface ThemeTokens {
     fontSizeSM: number;
     fontSizeLG: number;
 
-    // fontFamily: string;
-    // fontFamilyHeading: string;
+    fontFamily: string;
+    fontFamilyHeading: string;
     fontWeightStrong: number;
     fontSizeHeading1: number;
     fontSizeHeading2: number;
@@ -90,8 +90,8 @@ export const lightTokens: ThemeTokens = {
     fontSizeLG: 16, // سایز بزرگ‌تر
     fontSizeSM: 12, // سایز کوچک‌تر  
 
-    // fontFamily: "'Poppins', sans-serif", // فونت بدنه و فرم‌ها
-    // fontFamilyHeading: "'Inter', sans-serif", // فونت عناوین
+    fontFamily: "'Poppins', sans-serif", // فونت بدنه و فرم‌ها
+    fontFamilyHeading: "'Inter', sans-serif", // فونت عناوین
     fontWeightStrong: 600,
     fontSizeHeading1: 48, // H1
     fontSizeHeading2: 40, // H2
@@ -145,8 +145,8 @@ export const darkTokens: ThemeTokens = {
     fontSizeLG: 16, // سایز بزرگ‌تر
     fontSizeSM: 12, // سایز کوچک‌تر  
 
-    // fontFamily: "'Poppins', sans-serif", // فونت بدنه و فرم‌ها
-    // fontFamilyHeading: "'Inter', sans-serif", // فونت عناوین
+    fontFamily: "'Poppins', sans-serif", // فونت بدنه و فرم‌ها
+    fontFamilyHeading: "'Inter', sans-serif", // فونت عناوین
     fontWeightStrong: 600,
     fontSizeHeading1: 48, // H1
     fontSizeHeading2: 40, // H2
