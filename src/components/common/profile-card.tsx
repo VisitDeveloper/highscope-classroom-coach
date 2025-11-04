@@ -106,11 +106,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 type="default"
                 icon={<EditOutlined />}
                 onClick={onEditProfile}
-                style={{
-                  borderRadius: borderRadiusLG,
-                  borderColor: colorTextSecondary,
-                  color: colorText,
-                }}
+                
               >
                 Edit
               </Button>

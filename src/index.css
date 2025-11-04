@@ -1,7 +1,129 @@
 @import "tailwindcss";
 
+/* ============================================
+   FONT FACE DECLARATIONS
+   ============================================ */
+
+/* Inter Font - For Headings */
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter/webfonts/inter-latin-500-normal.woff2') format('woff2'),
+       url('./assets/fonts/inter/webfonts/inter-latin-500-normal.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./assets/fonts/inter/webfonts/inter-latin-600-normal.woff2') format('woff2'),
+       url('./assets/fonts/inter/webfonts/inter-latin-600-normal.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Poppins Font - For Body Text, Forms, Buttons, Menus */
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/poppins/webfonts/poppins-latin-400-normal.woff2') format('woff2'),
+       url('./assets/fonts/poppins/webfonts/poppins-latin-400-normal.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/poppins/webfonts/poppins-latin-500-normal.woff2') format('woff2'),
+       url('./assets/fonts/poppins/webfonts/poppins-latin-500-normal.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  src: url('./assets/fonts/poppins/webfonts/poppins-latin-600-normal.woff2') format('woff2'),
+       url('./assets/fonts/poppins/webfonts/poppins-latin-600-normal.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   CSS VARIABLES
+   ============================================ */
+
 :root {
   --modal-titlefontszie: 24px;
+  
+  /* Font Families */
+  --font-family-heading: 'Inter', sans-serif;
+  --font-family-body: 'Poppins', sans-serif;
+  
+  /* Heading Font Sizes */
+  --heading-1-size: 48px;
+  --heading-1-line-height: 52.8px; /* 1.1em */
+  
+  --heading-2-size: 40px;
+  --heading-2-line-height: 44px; /* 1.1em */
+  
+  --heading-3-size: 32px;
+  --heading-3-line-height: 38.4px; /* 1.2em */
+  
+  --heading-4-size: 24px;
+  --heading-4-line-height: 28.8px; /* 1.2em */
+  
+  --heading-5-size: 20px;
+  --heading-5-line-height: 26px; /* 1.3em */
+  
+  /* Paragraph Font Sizes */
+  --paragraph-1-size: 18px;
+  --paragraph-1-line-height: 27px; /* 1.5em */
+  --paragraph-1-spacing: 27px; /* 1.5x */
+  
+  --paragraph-2-size: 16px;
+  --paragraph-2-line-height: 24px; /* 1.5em */
+  --paragraph-2-spacing: 24px; /* 1.5x */
+  
+  --paragraph-3-size: 14px;
+  --paragraph-3-line-height: 22.4px; /* 1.6em */
+  --paragraph-3-spacing: 21px; /* 1.5x */
+  
+  --paragraph-4-size: 12px;
+  --paragraph-4-line-height: 19.2px; /* 1.6em */
+  --paragraph-4-spacing: 18px; /* 1.5x */
+  
+  /* Button Text */
+  --button-large-size: 16px;
+  --button-large-line-height: 17.6px; /* 1.1em */
+  
+  --button-medium-size: 14px;
+  --button-medium-line-height: 15.4px; /* 1.1em */
+  
+  --button-small-size: 12px;
+  --button-small-line-height: 13.2px; /* 1.1em */
+  
+  /* Input Text */
+  --input-plain-text-size: 16px;
+  --input-plain-text-line-height: 17.6px; /* 1.1em */
+  
+  --input-rich-text-size: 16px;
+  --input-rich-text-line-height: 22.4px; /* 1.4em */
+  
+  --input-label-size: 14px;
+  --input-label-line-height: 15.4px; /* 1.1em */
+  
+  --input-error-size: 14px;
+  --input-error-line-height: 19.6px; /* 1.4em */
+  
+  /* Menu Items */
+  --menu-main-size: 14px;
+  --menu-main-line-height: 15.4px; /* 1.1em */
+  
+  --menu-submenu-size: 12;
+  --menu-submenu-line-height: 13.2px; /* 1.1em */
 }
 
 * {
@@ -11,8 +133,287 @@
   
 }
 
-body{
+/* ============================================
+   GLOBAL TYPOGRAPHY
+   ============================================ */
+
+body {
   background-color: #D1D5DB;
+  font-family: var(--font-family-body);
+  font-size: var(--paragraph-2-size);
+  line-height: var(--paragraph-2-line-height);
+}
+
+/* ============================================
+   HEADINGS (Inter Font)
+   ============================================ */
+
+h1, .h1 {
+  font-family: var(--font-family-heading);
+  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-size: var(--heading-1-size);
+  line-height: var(--heading-1-line-height);
+  margin: 0;
+}
+
+h1.semi-bold, .h1.semi-bold {
+  font-weight: 600;
+}
+
+h2, .h2 {
+  font-family: var(--font-family-heading);
+  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-size: var(--heading-2-size);
+  line-height: var(--heading-2-line-height);
+  margin: 0;
+}
+
+h2.semi-bold, .h2.semi-bold {
+  font-weight: 600;
+}
+
+h3, .h3 {
+  font-family: var(--font-family-heading);
+  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-size: var(--heading-3-size);
+  line-height: var(--heading-3-line-height);
+  margin: 0;
+}
+
+h3.semi-bold, .h3.semi-bold {
+  font-weight: 600;
+}
+
+h4, .h4 {
+  font-family: var(--font-family-heading);
+  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-size: var(--heading-4-size);
+  line-height: var(--heading-4-line-height);
+  margin: 0;
+}
+
+h4.semi-bold, .h4.semi-bold {
+  font-weight: 600;
+}
+
+h5, .h5 {
+  font-family: var(--font-family-heading);
+  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-size: var(--heading-5-size);
+  line-height: var(--heading-5-line-height);
+  margin: 0;
+}
+
+h5.semi-bold, .h5.semi-bold {
+  font-weight: 600;
+}
+
+/* ============================================
+   PARAGRAPHS (Poppins Font)
+   ============================================ */
+
+p, .p1 {
+  font-family: var(--font-family-body);
+  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-size: var(--paragraph-1-size);
+  line-height: var(--paragraph-1-line-height);
+  margin: 0 0 var(--paragraph-1-spacing) 0;
+}
+
+p.medium, .p1.medium {
+  font-weight: 500;
+}
+
+.p2 {
+  font-family: var(--font-family-body);
+  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-size: var(--paragraph-2-size);
+  line-height: var(--paragraph-2-line-height);
+  margin: 0 0 var(--paragraph-2-spacing) 0;
+}
+
+.p2.medium {
+  font-weight: 500;
+}
+
+.p3 {
+  font-family: var(--font-family-body);
+  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-size: var(--paragraph-3-size);
+  line-height: var(--paragraph-3-line-height);
+  margin: 0 0 var(--paragraph-3-spacing) 0;
+}
+
+.p3.medium {
+  font-weight: 500;
+}
+
+.p4 {
+  font-family: var(--font-family-body);
+  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-size: var(--paragraph-4-size);
+  line-height: var(--paragraph-4-line-height);
+  margin: 0 0 var(--paragraph-4-spacing) 0;
+}
+
+.p4.medium {
+  font-weight: 500;
+}
+
+/* ============================================
+   BUTTON TEXT (Poppins Font)
+   ============================================ */
+
+.btn-text-large,
+button.btn-large,
+.ant-btn-large {
+  font-family: var(--font-family-body);
+  font-weight: 500;
+  font-size: var(--button-large-size);
+  line-height: var(--button-large-line-height);
+}
+
+.btn-text-medium,
+button.btn-medium,
+.ant-btn {
+  font-family: var(--font-family-body);
+  font-weight: 500;
+  font-size: var(--button-medium-size);
+  line-height: var(--button-medium-line-height);
+}
+
+.btn-text-small,
+button.btn-small,
+.ant-btn-sm {
+  font-family: var(--font-family-body);
+  font-weight: 500;
+  font-size: var(--button-small-size);
+  line-height: var(--button-small-line-height);
+}
+
+/* ============================================
+   INPUT TEXT (Poppins Font)
+   ============================================ */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="tel"],
+textarea,
+.ant-input,
+.ant-input-affix-wrapper input {
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  font-size: var(--input-plain-text-size);
+  line-height: var(--input-plain-text-line-height);
+}
+
+input[type="text"].rich-text,
+textarea.rich-text,
+.ant-input.rich-text {
+  font-size: var(--input-rich-text-size);
+  line-height: var(--input-rich-text-line-height);
+}
+
+label,
+.ant-form-item-label > label,
+.ant-form-item-label label {
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  font-size: var(--input-label-size);
+  line-height: var(--input-label-line-height);
+}
+
+.ant-form-item-explain-error,
+.ant-form-item-explain {
+  font-family: var(--font-family-body);
+  font-weight: 400;
+  font-size: var(--input-error-size);
+  line-height: var(--input-error-line-height);
+}
+
+/* ============================================
+   MENU ITEMS (Poppins Font)
+   ============================================ */
+
+.ant-menu-item,
+.ant-menu-submenu-title {
+  font-family: var(--font-family-body);
+  font-weight: 500; /* Medium, 600 for Selected State */
+  font-size: var(--menu-main-size);
+  line-height: var(--menu-main-line-height);
+}
+
+.ant-menu-item-selected,
+.ant-menu-submenu-selected > .ant-menu-submenu-title {
+  font-weight: 600; /* Semi-bold for selected state */
+}
+
+.ant-menu-submenu .ant-menu-item {
+  font-size: var(--menu-submenu-size);
+  line-height: var(--menu-submenu-line-height);
+}
+
+.ant-menu-submenu .ant-menu-item-selected {
+  font-weight: 600; /* Semi-bold for selected state */
+}
+
+/* ============================================
+   ANT DESIGN TYPOGRAPHY COMPONENTS
+   ============================================ */
+
+/* Ant Design Title components should use Inter font */
+.ant-typography h1,
+.ant-typography h2,
+.ant-typography h3,
+.ant-typography h4,
+.ant-typography h5,
+.ant-typography-title {
+  font-family: var(--font-family-heading);
+}
+
+.ant-typography h1,
+h1.ant-typography {
+  font-size: var(--heading-1-size);
+  line-height: var(--heading-1-line-height);
+  font-weight: 500;
+}
+
+.ant-typography h2,
+h2.ant-typography {
+  font-size: var(--heading-2-size);
+  line-height: var(--heading-2-line-height);
+  font-weight: 500;
+}
+
+.ant-typography h3,
+h3.ant-typography {
+  font-size: var(--heading-3-size);
+  line-height: var(--heading-3-line-height);
+  font-weight: 500;
+}
+
+.ant-typography h4,
+h4.ant-typography {
+  font-size: var(--heading-4-size);
+  line-height: var(--heading-4-line-height);
+  font-weight: 500;
+}
+
+.ant-typography h5,
+h5.ant-typography {
+  font-size: var(--heading-5-size);
+  line-height: var(--heading-5-line-height);
+  font-weight: 500;
+}
+
+/* Ant Design Text and Paragraph components should use Poppins */
+.ant-typography,
+.ant-typography p,
+.ant-typography-text,
+.ant-typography-paragraph {
+  font-family: var(--font-family-body);
 }
 
 .my-modal .ant-modal-title {
