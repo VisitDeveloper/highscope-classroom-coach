@@ -366,6 +366,9 @@ export function ReusableTable<RecordType extends { key: React.Key }>(props: Reus
                 size={(rest as any).size || 'middle'}
                 scroll={(rest as any).scroll}
                 className='custom-table-header'
+                // style={{
+                //     textTransform: 'capitalize'
+                // }}
 
             />
         </div>

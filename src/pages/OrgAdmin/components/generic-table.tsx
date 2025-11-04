@@ -6,6 +6,7 @@ import { useWindowSize } from "./../../../hooks/use-size";
 import ReusableTable from "./../../../components/ui/reusable-table";
 import type { ColumnsType } from "antd/es/table";
 import type { AxiosResponse } from "axios";
+import { TrashIcon } from "@phosphor-icons/react";
 
 interface GenericTableProps<T extends { [key: string]: any }> {
     service: {
@@ -68,7 +69,7 @@ const GenericTable = <T extends {
     const takeDataFromServer = async (page = 1, size = initialPageSize) => {
         try {
             setLoading(true);
-            const res = await service.getList({ page, pageSize: size,  });
+            const res = await service.getList({ page, pageSize: size, });
             const itemsWithKey = res.data.map(item => ({ ...item, key: item.id }));
             setData(itemsWithKey);
             setTotal(res.total ?? (res.data ? res.data.length : 0));
@@ -112,10 +113,14 @@ const GenericTable = <T extends {
     const baseColumns: ColumnsType<T> =
         data.length
             ? (Object.keys(data[0]) as (keyof T)[]).map(k => ({
-                title: String(k),
+                title: String(k)
+                    .replace(/([A-Z])/g, " $1")        // Add space before capitals
+                    .replace(/^./, (str) => str.toUpperCase()) // Uppercase first letter
+                    .trim(),
                 dataIndex: k as string,
                 key: String(k),
-                align:'center',
+                width:String(k) === 'userId' ? 100 : undefined,
+                // align:'center',
                 sorter: (a: any, b: any) => {
                     const va = a[k as any], vb = b[k as any];
                     if (typeof va === "number" && typeof vb === "number") return va - vb;
@@ -130,11 +135,11 @@ const GenericTable = <T extends {
             key: "__actions",
             width: 90,
             fixed: undefined,
-            align:'center',
+            align: 'center',
             render: (_: any, record: T) => (
                 <Space>
                     <Popconfirm title="Sure to delete?" onConfirm={() => handleDelete(record)}>
-                        <Button danger icon={<DeleteOutlined />} />
+                        <Button type="text" danger icon={<TrashIcon size={18} />} />
                     </Popconfirm>
                 </Space>
             ),

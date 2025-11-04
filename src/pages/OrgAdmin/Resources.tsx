@@ -10,51 +10,51 @@ import {
 const resourcesLinks = [
   {
     title: "Classroom Coach and ECERS-3 Crosswalk",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachandECERS-3Crosswalk.pdf",
   },
   {
     title: "Classroom Coach and PQA Crosswalk",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachandPQA.pdf",
   },
   {
     title: "Classroom Coach Classroom Materials Checklist",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachClassroomMaterialsChecklist.pdf",
   },
   {
     title: "Classroom Coach FAQ",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachFAQ.pdf",
   },
   {
     title: "Classroom Coach Glossary",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachGlossary.pdf",
   },
   {
     title: "Classroom Coach Measurement Tool",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachMeasurementTool.pdf",
   },
   {
     title: "Classroom Coach Research Base",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachResearchBase.pdf",
   },
   {
     title: "Classroom Coach Research Base",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachResearchBase.pdf",
   },
   {
     title: "Classroom Coach Scoring Guide",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachScoringGuide.pdf",
   },
   {
     title: "Classroom Coach Scoring Summary",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachScoringSummary.pdf",
   },
   {
     title: "Classroom Coach Strategy Report Instructions",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachReportInstructions.pdf",
   },
   {
     title: "Classroom Coach Technical Report",
-    href: "https://ant.design",
+    href: "https://ccoach.highscopeplatform.org/Resources/ClassroomCoachTechnicalReport.pdf",
   },
 ];
 
@@ -65,15 +65,15 @@ export default function Resources() {
   return (
     <div>
       <div
-        className="flex flex-row justify-center items-center h-[60px] w-full rounded-lg"
-        style={{ backgroundColor: colorPrimary }}
+        className="flex flex-row justify-center items-center h-[60px] w-full rounded-sm"
+        style={{ backgroundColor: '#43B02A' }}
       >
         <Typography.Title level={5} style={{ color: "#fff" }}>
           Resources
         </Typography.Title>
       </div>
 
-      <Row gutter={[16, 16]} className="mt-4!">
+      <Row gutter={[25, 25]} className="mt-4!">
         {resourcesLinks.map((resource, index) => (
           <Col
             key={resource.title + index}

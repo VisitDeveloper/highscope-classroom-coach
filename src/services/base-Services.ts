@@ -44,6 +44,25 @@ export abstract class BaseService {
         this._axiosRequestConfig = { ...this._axiosRequestConfig, ...config };
     }
 
+    get axiosInstanceWithoutTokenFakeAPI(): AxiosInstance {
+        let axiosInstanceWithoutToken: AxiosInstance = this.axiosInstance;
+
+        axiosInstanceWithoutToken.interceptors.response.use(
+            function (response) {
+                // Any status code that lie within the range of 2xx cause this function to trigger
+                // Do something with response data
+                return response;
+            },
+            function (error) {
+                // Any status codes that falls outside the range of 2xx cause this function to trigger
+                // Do something with response error
+                return Promise.reject(error);
+            }
+        );
+
+        return axiosInstanceWithoutToken;
+    }
+
     get axiosInstanceWithoutToken(): AxiosInstance {
         let axiosInstanceWithoutToken: AxiosInstance = this.axiosInstance;
 
