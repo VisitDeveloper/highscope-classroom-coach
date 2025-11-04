@@ -19,6 +19,7 @@ const ManageSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/ManageSite"
 const CreateSiteOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/CreateSite"));
 const ReportsOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Reports"));
 const ResourcesOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Resources"));
+const ProfileOrgAdmin = React.lazy(() => import("./pages/OrgAdmin/Profile"));
 const ManageStaff = React.lazy(() => import("./pages/OrgAdmin/ManageStaff"))
 // const DashboardORGAdmin = React.lazy(() => import("./pages/OrgAdmin/Dashboard"));
 // const ManagSite = React.lazy(() => import("./pages/OrgAdmin/ManageSite"));
@@ -30,11 +31,11 @@ const AssessmentsSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Assessme
 const MaterialsSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/MaterialsChecklist"));
 const ReportSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Reports"));
 const ResourcesSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Resources"));
-
+const ProfileSiteAdmin = React.lazy(() => import("./pages/SiteAdmin/Profile"));
 // Teacher Pages
 const HomeTeacher = React.lazy(() => import("./pages/Teacher/Home"));
 const DashboardTeacher = React.lazy(() => import("./pages/Teacher/Dashboard"));
-
+const ProfileTeacher = React.lazy(() => import("./pages/Teacher/Profile"));
 const TestErrorPage = React.lazy(() => import("./pages/testPage"));
 
 function App() {
@@ -98,7 +99,7 @@ function App() {
                 <Route path={APP_ROUTES.ORG_ADMIN_REPORTS} element={<ReportsOrgAdmin />} />
                 <Route path={APP_ROUTES.ORG_ADMIN_RESOURCES} element={<ResourcesOrgAdmin />} />
                 <Route path={'/org-admin/test'} element={<TestErrorPage />} />
-
+                <Route path={APP_ROUTES.ORG_ADMIN_PROFILE} element={<ProfileOrgAdmin />} />
 
                 {/* <Route path={APP_ROUTES.} element={<ManageSiteOrgAdmin />} /> */}
                 {/* <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_STAFF} element={<HomeOrgAdmin />} />
@@ -119,6 +120,7 @@ function App() {
                 <Route path={APP_ROUTES.SITE_ADMIN_MATERIALS_CHECKLIST} element={<MaterialsSiteAdmin />} />
                 <Route path={APP_ROUTES.SITE_ADMIN_REPORTS} element={<ReportSiteAdmin />} />
                 <Route path={APP_ROUTES.SITE_ADMIN_RESOURCES} element={<ResourcesSiteAdmin />} />
+                <Route path={APP_ROUTES.SITE_ADMIN_PROFILE} element={<ProfileSiteAdmin />} />
               </Route>
             </Route>
 
@@ -132,6 +134,7 @@ function App() {
               <Route element={<MainLayout />}>
                 <Route path={APP_ROUTES.TEACHER_DASHBOARD} element={<DashboardTeacher />} />
                 <Route path={APP_ROUTES.TEACHER_HOME} element={<HomeTeacher />} />
+                <Route path={APP_ROUTES.TEACHER_PROFILE} element={<ProfileTeacher />} />
               </Route>
             </Route>
 
