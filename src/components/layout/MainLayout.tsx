@@ -361,7 +361,7 @@ const MainLayout = (props: MainLayoutProps) => {
       {/* <Layout className={cn({ "bg-[#D1D5DB]": !isDark })}> */}
       <Layout>
         <Header
-          className={`sticky top-0 z-10 w-full flex items-center h-[70px]! p-4!`}
+          className={`sticky top-0 z-10 w-full flex items-center shadow-lg h-[70px]! p-4!`}
           style={{ background: colorPrimary }}
         >
           <div className="flex flex-row justify-between items-center w-full ">
