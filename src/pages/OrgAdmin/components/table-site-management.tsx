@@ -103,7 +103,7 @@ const ManageSiteTable = () => {
             align: 'center',
         },
         {
-            title: 'Timezone',
+            title: 'Time zone',
             dataIndex: 'timezone',
             align: 'center',
         },
@@ -135,9 +135,7 @@ const ManageSiteTable = () => {
     useEffect(() => {
         (async () => {
             try {
-                const getLists = await PostServices.getList({
-                    
-                })
+                const getLists = await PostServices.getList({})
                 console.log('lsit', getLists.data)
             } catch (error) {
                 console.log(error)

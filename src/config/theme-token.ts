@@ -51,7 +51,7 @@ interface ThemeTokens {
 
 // Light theme tokens
 export const lightTokens: ThemeTokens = {
-    colorPrimary: "#43B02A",
+    colorPrimary: "#007041",
     colorPrimaryHover: "#A7D500",
     colorPrimaryActive: "#358821",
 

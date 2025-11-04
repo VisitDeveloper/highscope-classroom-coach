@@ -11,14 +11,14 @@ export abstract class CrudService<
     abstract entityBaseUrl: string;
 
     create(payload: EntityCreateModel) {
-        return this.axiosInstanceWithoutToken.post(
+        return this.axiosInstanceWithoutTokenFakeAPI.post(
             `/${this.entityBaseUrl}/create`,
             payload
         );
     }
 
     update(payload: EntityUpdateModel, entityId: string) {
-        return this.axiosInstanceWithoutToken.put(
+        return this.axiosInstanceWithoutTokenFakeAPI.put(
             `/${this.entityBaseUrl}/update/${entityId}`,
             payload
         );
@@ -26,7 +26,7 @@ export abstract class CrudService<
 
     // Promise<ApiResponse<Array<EntityModel>>>
     getList(payload?: any): Promise<any> {
-        return this.axiosInstanceWithoutToken.get(
+        return this.axiosInstanceWithoutTokenFakeAPI.get(
             `/${this.entityBaseUrl}`,
             payload
         );
@@ -36,7 +36,7 @@ export abstract class CrudService<
     getJustNameList(
         payload?: any
     ): Promise<any> {
-        return this.axiosInstanceWithToken.post(
+        return this.axiosInstanceWithoutTokenFakeAPI.post(
             `/${this.entityBaseUrl}/short/list`,
             payload
         );
@@ -44,20 +44,30 @@ export abstract class CrudService<
 
     // Promise<ApiResponse<EntityModel>>
     getById(entityId: string): Promise<any> {
-        return this.axiosInstanceWithToken.get(
+        return this.axiosInstanceWithoutTokenFakeAPI.get(
             `/${this.entityBaseUrl}/byId/${entityId}`
         );
     }
 
     delete(entityId: string) {
-        return this.axiosInstanceWithToken.delete(
+        return this.axiosInstanceWithoutTokenFakeAPI.delete(
             `/${this.entityBaseUrl}/${entityId}`
         );
     }
 
     logicDelete(entityId: string) {
-        return this.axiosInstanceWithToken.delete(
+        return this.axiosInstanceWithoutTokenFakeAPI.delete(
             `/${this.entityBaseUrl}/${entityId}`
         );
     }
 }
+
+
+// entity : user mange
+// site.com/api/v1/manage-user/create
+// site.com/api/v1/manage-user/update
+
+// entity : link management
+// site.com/api/v1/manage-link/create
+// site.com/api/v1/manage-link/update
+// site.com/api/v1/manage-link/create/post/links

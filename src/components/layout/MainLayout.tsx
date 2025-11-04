@@ -46,13 +46,13 @@ const siderStyle: React.CSSProperties = {
 // }
 // props: MainLayoutProps
 const MainLayout = () => {
-    // const { toggleTheme, isDark } = props;
-    const {
-        token: { borderRadiusLG, colorPrimary, colorBgBase, colorTextSecondary },
-    } = theme.useToken();
-    const { t } = useTranslation();
-    const [language, setLanguage] = useState(i18n.language || 'en');
-    const [collapsed, setCollapsed] = useState(false);
+  // const { toggleTheme, isDark } = props;
+  const {
+    token: { borderRadiusLG, colorPrimary, colorBgBase, colorTextSecondary },
+  } = theme.useToken();
+  const { t } = useTranslation();
+  const [language, setLanguage] = useState(i18n.language || 'en');
+  const [collapsed, setCollapsed] = useState(false);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -111,8 +111,8 @@ const MainLayout = () => {
         userRole === "org-admin"
           ? APP_ROUTES.ORG_ADMIN_PROFILE
           : userRole === "site-admin"
-          ? APP_ROUTES.SITE_ADMIN_PROFILE
-          : APP_ROUTES.TEACHER_PROFILE,
+            ? APP_ROUTES.SITE_ADMIN_PROFILE
+            : APP_ROUTES.TEACHER_PROFILE,
     },
     {
       title: t("mainlayout.setting"),
@@ -345,8 +345,8 @@ const MainLayout = () => {
             userRole === "org-admin"
               ? orgAdminArrayMenuItem
               : userRole === "site-admin"
-              ? siteAdminArrayMenuItem
-              : teacherArrayMenuItem
+                ? siteAdminArrayMenuItem
+                : teacherArrayMenuItem
           }
         />
       </Sider>
@@ -419,6 +419,13 @@ const MainLayout = () => {
                   </>
                 );
               })}
+              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 ml-2">
+                <img
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+                  alt="User"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </div>
         </Header>
