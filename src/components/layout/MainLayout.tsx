@@ -304,7 +304,7 @@ const MainLayout = (props: MainLayoutProps) => {
   return (
     <Layout>
       <Sider
-        className={`overflow-auto h-screen sticky! top-0 bottom-0 shadow-2xl  transition duration-700! ease-in-out`}
+        className={`overflow-auto h-screen sticky! top-0 bottom-0 shadow-lg transition duration-700! ease-in-out`}
         // ${isDark ? ' border-r-white bg-white/10 backdrop-blur-3xl' : 'border-r-black bg-black/20 backdrop-blur-3xl'}
         style={{
           ...siderStyle,
