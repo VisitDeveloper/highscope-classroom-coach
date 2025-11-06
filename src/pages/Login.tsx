@@ -58,7 +58,7 @@ function Login() {
     <div
       className='w-full h-screen object-cover bg-center bg-cover bg-no-repeat'
       style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('/images/bg-login.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/bg-login-1.jpg')`,
         backdropFilter: 'blur(5px)', // برای blur
       }}
     >
