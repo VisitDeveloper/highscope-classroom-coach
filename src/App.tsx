@@ -1,8 +1,7 @@
 import React, { Suspense, useState } from "react";
 import { ConfigProvider, Spin } from "antd";
 import { theme } from "antd";
-import { darkTokens, lightTokens } from "./config/theme-token";
-import { useTheme } from "./hooks/use-theme";
+import { lightTokens } from "./config/theme-token";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { type UserRole } from './routes/_protected-route'
 import { APP_ROUTES } from "./routes/routes";
@@ -53,9 +52,9 @@ function App() {
 
   // مثال: user فعلی
 
-  const [userRole, setUserRole] = useState<UserRole>("org-admin");
+  const [userRole] = useState<UserRole>("org-admin");
 
-  const [isLogin, setIsLogin] = useState<boolean>(true)
+  const [isLogin] = useState<boolean>(true)
 
   return (
     <ErrorBoundary onError={handleError} resetKeys={[]}>
@@ -104,7 +103,7 @@ function App() {
 
                 {/* <Route path={APP_ROUTES.} element={<ManageSiteOrgAdmin />} /> */}
                 {/* <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_STAFF} element={<HomeOrgAdmin />} />
-              <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS} element={<HomeOrgAdmin />} />
+                    <Route path={APP_ROUTES.ORG_ADMIN_MANAGE_CLASSROOMS} element={<HomeOrgAdmin />} />
                */}
               </Route>
             </Route>

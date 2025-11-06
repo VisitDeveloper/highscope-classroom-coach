@@ -24,10 +24,6 @@ interface Site {
     status: any;
 }
 
-interface ManagTableSharePage {
-    serviceName?: Record<string, string>;
-
-}
 
 const PostServices = new ManageSiteService()
 

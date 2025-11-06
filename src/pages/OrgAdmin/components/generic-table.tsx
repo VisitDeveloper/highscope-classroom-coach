@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 import { Button, Input, Popconfirm, Space, theme } from "antd";
 import TitlePage from "./../../../components/common/title-page";
-import { DeleteOutlined, FilterOutlined } from "@ant-design/icons";
+import {    FilterOutlined } from "@ant-design/icons";
 import { useWindowSize } from "./../../../hooks/use-size";
 import ReusableTable from "./../../../components/ui/reusable-table";
 import type { ColumnsType } from "antd/es/table";
-import type { AxiosResponse } from "axios";
 import { TrashIcon } from "@phosphor-icons/react";
 
 interface GenericTableProps<T extends { [key: string]: any }> {
@@ -244,6 +243,7 @@ const GenericTable = <T extends {
                     padding: "0px 0px 10px 0px",
                 }}
                 scroll={{ x: 1200 }}
+                {...rest}
             />
 
 

@@ -18,21 +18,17 @@ export interface ProfileData {
 interface ProfileCardProps {
   profileData: ProfileData;
   onEditProfile?: () => void;
-  onEditPersonalInfo?: () => void;
 }
 
 const ProfileCard: React.FC<ProfileCardProps> = ({
   profileData,
   onEditProfile,
-  onEditPersonalInfo,
 }) => {
   const {
     token: {
       colorBgElevated,
       colorText,
-      colorTextSecondary,
       borderRadiusLG,
-      colorBgContainer,
     },
   } = theme.useToken();
 
@@ -106,7 +102,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
                 type="default"
                 icon={<EditOutlined />}
                 onClick={onEditProfile}
-                
+
               >
                 Edit
               </Button>

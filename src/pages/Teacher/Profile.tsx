@@ -18,16 +18,16 @@ const Profile = () => {
     console.log('Edit profile clicked')
   }
 
-  const handleEditPersonalInfo = () => {
-    // Handle edit personal info action
-    console.log('Edit personal info clicked')
-  }
+  // const handleEditPersonalInfo = () => {
+  //   // Handle edit personal info action
+  //   console.log('Edit personal info clicked')
+  // }
 
   return (
     <ProfileCard
       profileData={profileData}
       onEditProfile={handleEditProfile}
-      onEditPersonalInfo={handleEditPersonalInfo}
+    // onEditPersonalInfo={handleEditPersonalInfo}
     />
   )
 }

@@ -1,7 +1,7 @@
 import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { TableProps, TableColumnsType } from 'antd';
 import { Table, Button, Space, Popconfirm, Tooltip, Form, Input } from 'antd';
-import { DeleteOutlined, EditOutlined, DownloadOutlined } from '@ant-design/icons';
+import { EditOutlined, DownloadOutlined } from '@ant-design/icons';
 import type { InputRef, GetRef } from 'antd';
 import * as XLSX from 'xlsx';
 import { TrashIcon } from '@phosphor-icons/react';

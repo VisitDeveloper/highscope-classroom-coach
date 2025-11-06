@@ -23,7 +23,6 @@ import {
   SignOutIcon,
   ClipboardTextIcon,
 } from "@phosphor-icons/react";
-import { cn } from "../../lib/utils";
 
 const { Header, Sider, Content, Footer } = Layout;
 const { Option } = Select;
@@ -57,7 +56,7 @@ const MainLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { width } = useWindowSize();
-  const [userRole, setUserRole] = useState<UserRole>("org-admin");
+  const [userRole] = useState<UserRole>("org-admin");
 
   useEffect(() => {
     if (width < 768) {

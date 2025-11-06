@@ -448,11 +448,14 @@ h5.ant-typography {
 /* menu item tab index focus on */
 [tabindex]:focus-visible {
   outline: 4px solid #00A86B;
-  border-radius: 1px;
+  border-radius: 4px;
 }
 
 
 
+.inter-font {
+  font-family: 'Inter', sans-serif !important;
+}
 
 
 /* toast - please don't touch them - just be here may be romoved */

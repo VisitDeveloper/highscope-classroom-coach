@@ -25,7 +25,7 @@ export abstract class CrudService<
     }
 
     // Promise<ApiResponse<Array<EntityModel>>>
-    getList(payload?: any): Promise<any> {
+    getList(payload?: EntityModel | any): Promise<any> {
         return this.axiosInstanceWithoutTokenFakeAPI.get(
             `/${this.entityBaseUrl}`,
             payload
