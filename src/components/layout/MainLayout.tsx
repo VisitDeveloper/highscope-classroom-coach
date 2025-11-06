@@ -69,6 +69,7 @@ const MainLayout = () => {
   const ArrayButtonOnHeader: ArrayButtonOnHeaderType[] = [
     {
       title: t("mainlayout.campus_home"),
+      link:'/login',
       icon: (
         <svg
           className="size-4"
