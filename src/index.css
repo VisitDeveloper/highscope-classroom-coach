@@ -8,7 +8,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/inter/webfonts/inter-latin-500-normal.woff2') format('woff2'),
-       url('./assets/fonts/inter/webfonts/inter-latin-500-normal.woff') format('woff');
+    url('./assets/fonts/inter/webfonts/inter-latin-500-normal.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -17,7 +17,7 @@
 @font-face {
   font-family: 'Inter';
   src: url('./assets/fonts/inter/webfonts/inter-latin-600-normal.woff2') format('woff2'),
-       url('./assets/fonts/inter/webfonts/inter-latin-600-normal.woff') format('woff');
+    url('./assets/fonts/inter/webfonts/inter-latin-600-normal.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -27,7 +27,7 @@
 @font-face {
   font-family: 'Poppins';
   src: url('./assets/fonts/poppins/webfonts/poppins-latin-400-normal.woff2') format('woff2'),
-       url('./assets/fonts/poppins/webfonts/poppins-latin-400-normal.woff') format('woff');
+    url('./assets/fonts/poppins/webfonts/poppins-latin-400-normal.woff') format('woff');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -36,7 +36,7 @@
 @font-face {
   font-family: 'Poppins';
   src: url('./assets/fonts/poppins/webfonts/poppins-latin-500-normal.woff2') format('woff2'),
-       url('./assets/fonts/poppins/webfonts/poppins-latin-500-normal.woff') format('woff');
+    url('./assets/fonts/poppins/webfonts/poppins-latin-500-normal.woff') format('woff');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -45,7 +45,7 @@
 @font-face {
   font-family: 'Poppins';
   src: url('./assets/fonts/poppins/webfonts/poppins-latin-600-normal.woff2') format('woff2'),
-       url('./assets/fonts/poppins/webfonts/poppins-latin-600-normal.woff') format('woff');
+    url('./assets/fonts/poppins/webfonts/poppins-latin-600-normal.woff') format('woff');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -57,80 +57,102 @@
 
 :root {
   --modal-titlefontszie: 24px;
-  
+
   /* Font Families */
   --font-family-heading: 'Inter', sans-serif;
   --font-family-body: 'Poppins', sans-serif;
-  
+
   /* Heading Font Sizes */
   --heading-1-size: 48px;
-  --heading-1-line-height: 52.8px; /* 1.1em */
-  
+  --heading-1-line-height: 52.8px;
+  /* 1.1em */
+
   --heading-2-size: 40px;
-  --heading-2-line-height: 44px; /* 1.1em */
-  
+  --heading-2-line-height: 44px;
+  /* 1.1em */
+
   --heading-3-size: 32px;
-  --heading-3-line-height: 38.4px; /* 1.2em */
-  
+  --heading-3-line-height: 38.4px;
+  /* 1.2em */
+
   --heading-4-size: 24px;
-  --heading-4-line-height: 28.8px; /* 1.2em */
-  
+  --heading-4-line-height: 28.8px;
+  /* 1.2em */
+
   --heading-5-size: 20px;
-  --heading-5-line-height: 26px; /* 1.3em */
-  
+  --heading-5-line-height: 26px;
+  /* 1.3em */
+
   /* Paragraph Font Sizes */
   --paragraph-1-size: 18px;
-  --paragraph-1-line-height: 27px; /* 1.5em */
-  --paragraph-1-spacing: 27px; /* 1.5x */
-  
+  --paragraph-1-line-height: 27px;
+  /* 1.5em */
+  --paragraph-1-spacing: 27px;
+  /* 1.5x */
+
   --paragraph-2-size: 16px;
-  --paragraph-2-line-height: 24px; /* 1.5em */
-  --paragraph-2-spacing: 24px; /* 1.5x */
-  
+  --paragraph-2-line-height: 24px;
+  /* 1.5em */
+  --paragraph-2-spacing: 24px;
+  /* 1.5x */
+
   --paragraph-3-size: 14px;
-  --paragraph-3-line-height: 22.4px; /* 1.6em */
-  --paragraph-3-spacing: 21px; /* 1.5x */
-  
+  --paragraph-3-line-height: 22.4px;
+  /* 1.6em */
+  --paragraph-3-spacing: 21px;
+  /* 1.5x */
+
   --paragraph-4-size: 12px;
-  --paragraph-4-line-height: 19.2px; /* 1.6em */
-  --paragraph-4-spacing: 18px; /* 1.5x */
-  
+  --paragraph-4-line-height: 19.2px;
+  /* 1.6em */
+  --paragraph-4-spacing: 18px;
+  /* 1.5x */
+
   /* Button Text */
   --button-large-size: 16px;
-  --button-large-line-height: 17.6px; /* 1.1em */
-  
+  --button-large-line-height: 17.6px;
+  /* 1.1em */
+
   --button-medium-size: 14px;
-  --button-medium-line-height: 15.4px; /* 1.1em */
-  
+  --button-medium-line-height: 15.4px;
+  /* 1.1em */
+
   --button-small-size: 12px;
-  --button-small-line-height: 13.2px; /* 1.1em */
-  
+  --button-small-line-height: 13.2px;
+  /* 1.1em */
+
   /* Input Text */
   --input-plain-text-size: 16px;
-  --input-plain-text-line-height: 17.6px; /* 1.1em */
-  
+  --input-plain-text-line-height: 17.6px;
+  /* 1.1em */
+
   --input-rich-text-size: 16px;
-  --input-rich-text-line-height: 22.4px; /* 1.4em */
-  
+  --input-rich-text-line-height: 22.4px;
+  /* 1.4em */
+
   --input-label-size: 14px;
-  --input-label-line-height: 15.4px; /* 1.1em */
-  
+  --input-label-line-height: 15.4px;
+  /* 1.1em */
+
   --input-error-size: 14px;
-  --input-error-line-height: 19.6px; /* 1.4em */
-  
+  --input-error-line-height: 19.6px;
+  /* 1.4em */
+
   /* Menu Items */
   --menu-main-size: 14px;
-  --menu-main-line-height: 15.4px; /* 1.1em */
-  
+  --menu-main-line-height: 15.4px;
+  /* 1.1em */
+
   --menu-submenu-size: 12;
-  --menu-submenu-line-height: 13.2px; /* 1.1em */
+  --menu-submenu-line-height: 13.2px;
+  /* 1.1em */
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
+
 }
 
 /* ============================================
@@ -148,63 +170,78 @@ body {
    HEADINGS (Inter Font)
    ============================================ */
 
-h1, .h1 {
+h1,
+.h1 {
   font-family: var(--font-family-heading);
-  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-weight: 500;
+  /* Medium, can use 600 for Semi-bold */
   font-size: var(--heading-1-size);
   line-height: var(--heading-1-line-height);
   margin: 0;
 }
 
-h1.semi-bold, .h1.semi-bold {
+h1.semi-bold,
+.h1.semi-bold {
   font-weight: 600;
 }
 
-h2, .h2 {
+h2,
+.h2 {
   font-family: var(--font-family-heading);
-  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-weight: 500;
+  /* Medium, can use 600 for Semi-bold */
   font-size: var(--heading-2-size);
   line-height: var(--heading-2-line-height);
   margin: 0;
 }
 
-h2.semi-bold, .h2.semi-bold {
+h2.semi-bold,
+.h2.semi-bold {
   font-weight: 600;
 }
 
-h3, .h3 {
+h3,
+.h3 {
   font-family: var(--font-family-heading);
-  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-weight: 500;
+  /* Medium, can use 600 for Semi-bold */
   font-size: var(--heading-3-size);
   line-height: var(--heading-3-line-height);
   margin: 0;
 }
 
-h3.semi-bold, .h3.semi-bold {
+h3.semi-bold,
+.h3.semi-bold {
   font-weight: 600;
 }
 
-h4, .h4 {
+h4,
+.h4 {
   font-family: var(--font-family-heading);
-  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-weight: 500;
+  /* Medium, can use 600 for Semi-bold */
   font-size: var(--heading-4-size);
   line-height: var(--heading-4-line-height);
   margin: 0;
 }
 
-h4.semi-bold, .h4.semi-bold {
+h4.semi-bold,
+.h4.semi-bold {
   font-weight: 600;
 }
 
-h5, .h5 {
+h5,
+.h5 {
   font-family: var(--font-family-heading);
-  font-weight: 500; /* Medium, can use 600 for Semi-bold */
+  font-weight: 500;
+  /* Medium, can use 600 for Semi-bold */
   font-size: var(--heading-5-size);
   line-height: var(--heading-5-line-height);
   margin: 0;
 }
 
-h5.semi-bold, .h5.semi-bold {
+h5.semi-bold,
+.h5.semi-bold {
   font-weight: 600;
 }
 
@@ -212,21 +249,25 @@ h5.semi-bold, .h5.semi-bold {
    PARAGRAPHS (Poppins Font)
    ============================================ */
 
-p, .p1 {
+p,
+.p1 {
   font-family: var(--font-family-body);
-  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-weight: 400;
+  /* Regular, can use 500 for Medium */
   font-size: var(--paragraph-1-size);
   line-height: var(--paragraph-1-line-height);
   margin: 0 0 var(--paragraph-1-spacing) 0;
 }
 
-p.medium, .p1.medium {
+p.medium,
+.p1.medium {
   font-weight: 500;
 }
 
 .p2 {
   font-family: var(--font-family-body);
-  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-weight: 400;
+  /* Regular, can use 500 for Medium */
   font-size: var(--paragraph-2-size);
   line-height: var(--paragraph-2-line-height);
   margin: 0 0 var(--paragraph-2-spacing) 0;
@@ -238,7 +279,8 @@ p.medium, .p1.medium {
 
 .p3 {
   font-family: var(--font-family-body);
-  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-weight: 400;
+  /* Regular, can use 500 for Medium */
   font-size: var(--paragraph-3-size);
   line-height: var(--paragraph-3-line-height);
   margin: 0 0 var(--paragraph-3-spacing) 0;
@@ -250,7 +292,8 @@ p.medium, .p1.medium {
 
 .p4 {
   font-family: var(--font-family-body);
-  font-weight: 400; /* Regular, can use 500 for Medium */
+  font-weight: 400;
+  /* Regular, can use 500 for Medium */
   font-size: var(--paragraph-4-size);
   line-height: var(--paragraph-4-line-height);
   margin: 0 0 var(--paragraph-4-spacing) 0;
@@ -317,7 +360,7 @@ textarea.rich-text,
 }
 
 label,
-.ant-form-item-label > label,
+.ant-form-item-label>label,
 .ant-form-item-label label {
   font-family: var(--font-family-body);
   font-weight: 400;
@@ -340,14 +383,16 @@ label,
 .ant-menu-item,
 .ant-menu-submenu-title {
   font-family: var(--font-family-body);
-  font-weight: 500; /* Medium, 600 for Selected State */
+  font-weight: 500;
+  /* Medium, 600 for Selected State */
   font-size: var(--menu-main-size);
   line-height: var(--menu-main-line-height);
 }
 
 .ant-menu-item-selected,
-.ant-menu-submenu-selected > .ant-menu-submenu-title {
-  font-weight: 600; /* Semi-bold for selected state */
+.ant-menu-submenu-selected>.ant-menu-submenu-title {
+  font-weight: 600;
+  /* Semi-bold for selected state */
 }
 
 .ant-menu-submenu .ant-menu-item {
@@ -356,7 +401,8 @@ label,
 }
 
 .ant-menu-submenu .ant-menu-item-selected {
-  font-weight: 600; /* Semi-bold for selected state */
+  font-weight: 600;
+  /* Semi-bold for selected state */
 }
 
 /* ============================================
@@ -425,7 +471,7 @@ h5.ant-typography {
   color: white !important;
 }
 
-.custom-table-header .ant-table-thead > tr > th {
+.custom-table-header .ant-table-thead>tr>th {
   background-color: #43B02A !important;
   color: white !important;
   font-weight: bold;
@@ -455,6 +501,79 @@ h5.ant-typography {
 
 .inter-font {
   font-family: 'Inter', sans-serif !important;
+}
+
+/* Not-Found Page */
+
+.not-found {
+  font-family: Inter, sans-serif;
+  background-color: #E0EC89;
+  /* Lightest green for background */
+  color: #007041;
+  /* Dark green for text */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+.container {
+  background-color: #C0DF16;
+  /* A contrasting green for container */
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 600px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h1 {
+  font-size: 5em;
+  margin-bottom: 10px;
+  color: #43B02A;
+  /* Main theme green */
+}
+
+.h2 {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #008C15;
+  /* Another contrasting green */
+}
+
+.p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+.a {
+  color: #007041;
+  /* Dark green for links */
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 20px;
+  border: 2px solid #007041;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.a:hover {
+  background-color: #007041;
+  color: #E0EC89;
+}
+
+.illustration-placeholder {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin-bottom: 30px;
 }
 
 

@@ -20,13 +20,13 @@ function Login() {
       key: 0,
       colSpan: { xs: 24, md: 24, lg: 24 },
       rules: [
-        { type: 'text', message: 'Please insert string into the input' },
+        { type: 'email', message: 'Please insert email into the input' },
         { required: true, message: 'User Name is required!' },
-        { min: 2, message: 'Minimum 2 characters' },
-        { max: 100, message: 'Maximum 100 characters' },
+        { max: 200, message: 'Maximum 100 characters' },
         { whitespace: true, message: 'No space allowed' },
 
       ],
+      hasFeedback: true,
       propsElement: {
         placeholder: 'User Name',
         style: {
@@ -58,23 +58,24 @@ function Login() {
     <div
       className='w-full h-screen object-cover bg-center bg-cover bg-no-repeat'
       style={{
-        backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/images/bg-login-1.jpg')`,
+        backgroundImage: `linear-gradient(rgba(0,0,0,0.7), rgba(255,255,255,0.7)), url('/images/bg-login-1.jpg')`,
         backdropFilter: 'blur(5px)', // برای blur
       }}
     >
-      <div className='flex flex-row justify-center items-center h-full'>
-        <div className="w-[30%]! h-fit rounded-sm py-5!" style={{ backgroundColor: colorBgBase }}>
-          <div className="flex flex-col px-9! gap-2">
-            <div className="mt-5!">
-              <ClassRoomLogoComponent width={"100%"} height={"100"} />
+      <div className='flex flex-row justify-center items-center h-full '>
+        <div className="w-[90%] sm:w-[70%]! md:w-[50%]! lg:w-[40%]! xl:w-[30%]! h-fit rounded-sm py-3! " style={{ backgroundColor: '#fff' }}>
+            <div className="mt-5! text-center">
+              {/* <ClassRoomLogoComponent width={"100%"} height={"100"} /> */}
+              <img src="/images/bg-logo.jpg" style={{width:'100%',height:'auto'}} />
             </div>
+          <div className="flex flex-col px-9! gap-2">
             <div >
               <Typography.Title level={4} className="text-center inter-font" style={{ color: '#333' }}>
                 Sign In
               </Typography.Title>
 
               <Typography.Title level={5} className="inter-font" style={{ color: '#333' }}>
-                Sign in with your username or email address
+                Sign in with your username or email 
               </Typography.Title>
             </div>
             <div className="">
