@@ -472,7 +472,7 @@ h5.ant-typography {
 }
 
 .custom-table-header .ant-table-thead>tr>th {
-  background-color: #43B02A !important;
+  background-color: #007041 !important;
   color: white !important;
   font-weight: bold;
   text-align: center;
@@ -501,6 +501,12 @@ h5.ant-typography {
 
 .inter-font {
   font-family: 'Inter', sans-serif !important;
+}
+
+.ant-menu-inline .ant-menu-item,
+.ant-menu-inline .ant-menu-submenu-title {
+  padding-inline-start: 8px !important;
+  /* مقدار پیش‌فرض حدود 24px است */
 }
 
 /* Not-Found Page */

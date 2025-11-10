@@ -119,6 +119,7 @@ const GenericTable = <T extends {
                 dataIndex: k as string,
                 key: String(k),
                 width:String(k) === 'userId' ? 100 : undefined,
+                align:'left',
                 // align:'center',
                 sorter: (a: any, b: any) => {
                     const va = a[k as any], vb = b[k as any];

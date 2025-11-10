@@ -126,27 +126,27 @@ const ManageClassroomTable = () => {
         {
             title: 'Organization Name',
             dataIndex: 'organizationName',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Site Name',
             dataIndex: 'siteName',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Classroom Name',
             dataIndex: 'classroomName',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Classroom Teacher',
             dataIndex: 'classroomTeacher',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Status',
             dataIndex: 'status',
-            align: 'center',
+            align: 'left',
         },
 
     ];

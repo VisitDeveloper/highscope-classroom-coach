@@ -87,30 +87,30 @@ const ManageSiteTable = () => {
         {
             title: 'Entity Name',
             dataIndex: 'entityName',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Site ID',
             dataIndex: 'siteId',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Site Name',
             dataIndex: 'siteName',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Time zone',
             dataIndex: 'timezone',
-            align: 'center',
+            align: 'left',
         },
         {
             title: 'Hours Of Operation',
             dataIndex: 'operation',
-            align: 'center',
+            align: 'left',
         },
         {
-            title: 'Classroms',
+            title: 'Classrooms',
             key: 'action',
             align: 'center',
             render: (_: any, record: Site) => (

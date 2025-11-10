@@ -66,7 +66,7 @@ export default function Resources() {
     <div>
       <div
         className="flex flex-row justify-center items-center h-[60px] w-full rounded-sm"
-        style={{ backgroundColor: '#43B02A' }}
+        style={{ backgroundColor: colorPrimary }}
       >
         <Typography.Title level={5} style={{ color: "#fff" }}>
           Resources

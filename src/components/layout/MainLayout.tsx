@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import { Button, Layout, Menu, Select, theme, Typography } from "antd";
+import { Button, Drawer, Dropdown, Layout, Menu, Select, theme, Typography, type MenuProps } from "antd";
 import { Link, Outlet, useLocation, useNavigate } from "react-router";
 import { useWindowSize } from "../../hooks/use-size";
 import { useTranslation } from "react-i18next";
@@ -22,7 +22,9 @@ import {
   InfoIcon,
   SignOutIcon,
   ClipboardTextIcon,
+  ClosedCaptioningIcon,
 } from "@phosphor-icons/react";
+import CampusIcon from './../icon/campus-icon'
 
 const { Header, Sider, Content, Footer } = Layout;
 const { Option } = Select;
@@ -31,6 +33,8 @@ interface ArrayButtonOnHeaderType {
   title: string;
   icon: React.ReactElement | React.ReactNode;
   link?: string;
+  key?: string | number;
+
 }
 
 const siderStyle: React.CSSProperties = {
@@ -59,7 +63,7 @@ const MainLayout = () => {
   const [userRole] = useState<UserRole>("org-admin");
 
   useEffect(() => {
-    if (width < 768) {
+    if (width < 1190) {
       setCollapsed(true); // موبایل → پیشفرض بسته
     } else {
       setCollapsed(false); // دسکتاپ → پیشفرض باز
@@ -69,40 +73,8 @@ const MainLayout = () => {
   const ArrayButtonOnHeader: ArrayButtonOnHeaderType[] = [
     {
       title: t("mainlayout.campus_home"),
-      link:'/login',
-      icon: (
-        <svg
-          className="size-4"
-          viewBox="0 0 14 14"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M7.10913 9.50233C7.32869 9.52457 7.49994 9.70994 7.49994 9.93537V12.0649L7.49767 12.1093C7.47681 12.3142 7.31402 12.4771 7.10913 12.4979L7.06463 12.5002H3.93531L3.89081 12.4979C3.68601 12.4771 3.5231 12.3142 3.50227 12.1093L3.5 12.0649V9.93537C3.5 9.71002 3.67136 9.52467 3.89081 9.50233L3.93531 9.50007H7.06463L7.10913 9.50233ZM4.1385 11.8617H6.86172V10.1386H4.1385V11.8617Z"
-            fill="currentColor"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M12.1092 7.50237C12.3288 7.5246 12.5 7.70997 12.5 7.9354V12.0649L12.4977 12.1093C12.4769 12.3142 12.3141 12.4771 12.1092 12.4979L12.0647 12.5002H8.93537L8.89087 12.4979C8.68607 12.477 8.52316 12.3142 8.50233 12.1093L8.50006 12.0649V7.9354C8.50006 7.71006 8.67143 7.52472 8.89087 7.50237L8.93537 7.5001H12.0647L12.1092 7.50237ZM9.13857 11.8617H11.8618V8.1386H9.13857V11.8617Z"
-            fill="currentColor"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M7.10913 3.50215C7.32867 3.52438 7.4999 3.70979 7.49994 3.93518V8.06464L7.49767 8.10913C7.47686 8.31404 7.31406 8.47692 7.10913 8.49767L7.06463 8.49994H3.93531L3.89081 8.49767C3.68599 8.47682 3.52306 8.31397 3.50227 8.10913L3.5 8.06464V3.93518C3.50004 3.70986 3.67138 3.52448 3.89081 3.50215L3.93531 3.49988H7.06463L7.10913 3.50215ZM4.1385 7.86144H6.86172V4.13838H4.1385V7.86144Z"
-            fill="currentColor"
-          />
-          <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
-            d="M12.1092 3.50215C12.3287 3.52438 12.5 3.70979 12.5 3.93518V6.06467L12.4977 6.10916C12.4769 6.31405 12.3141 6.47696 12.1092 6.4977L12.0647 6.49997H8.93537L8.89087 6.4977C8.68607 6.47685 8.52315 6.31397 8.50233 6.10916L8.50006 6.06467V3.93518C8.5001 3.70987 8.67145 3.52448 8.89087 3.50215L8.93537 3.49988H12.0647L12.1092 3.50215ZM9.13857 5.86147H11.8618V4.13838H9.13857V5.86147Z"
-            fill="currentColor"
-          />
-        </svg>
-      ),
+      link: '/login',
+      icon: <CampusIcon className="size-4" />,
     },
     {
       title: t("mainlayout.user_profile"),
@@ -126,6 +98,48 @@ const MainLayout = () => {
     {
       title: t("mainlayout.logout"),
       icon: <SignOutIcon className="size-4" />,
+    },
+  ];
+
+  const items: MenuProps['items'] = [
+    {
+      key: '0',
+      label: 'My Account',
+      disabled: true,
+    },
+    {
+      type: 'divider',
+    },
+    {
+      key: '1',
+      label: <Link to={APP_ROUTES.LOGIN}>{t("mainlayout.campus_home")}</Link>,
+      icon: (
+        <CampusIcon className="size-4" />
+      )
+    },
+    {
+      key: '2',
+      label: <Link to={userRole === "org-admin"
+        ? APP_ROUTES.ORG_ADMIN_PROFILE
+        : userRole === "site-admin"
+          ? APP_ROUTES.SITE_ADMIN_PROFILE
+          : APP_ROUTES.TEACHER_PROFILE}>{t("mainlayout.user_profile")}</Link>,
+      icon: <UserIcon className="size-4" />,
+    },
+    {
+      key: '3',
+      label: t("mainlayout.setting"),
+      icon: <GearIcon className="size-4" />
+    },
+    {
+      key: '4',
+      label: t("mainlayout.help"),
+      icon: <InfoIcon className="size-4" />
+    },
+    {
+      key: '5',
+      label: t("mainlayout.logout"),
+      icon: <SignOutIcon className="size-4" />
     },
   ];
 
@@ -293,6 +307,25 @@ const MainLayout = () => {
     },
   ];
 
+
+  const [open, setOpen] = useState(false);
+
+  const showDrawer = () => {
+    setOpen(true);
+  };
+
+  const onClose = () => {
+    setOpen(false);
+  };
+
+
+  useEffect(() => {
+    if (width > 1024) {
+      setOpen(false)
+    }
+  }, [width])
+
+
   return (
     <Layout>
       <Sider
@@ -308,26 +341,15 @@ const MainLayout = () => {
           // backdropFilter: 'blur(22px)', // برای blur
         }}
         trigger={null}
-        width={width < 768 ? 180 : 235}
-        collapsedWidth={width < 768 ? 0 : 80}
+        width={width < 1024 ? 0 : 235}
+        collapsedWidth={width < 1024 ? 0 : 80}
         collapsible
         collapsed={collapsed}
-        // onCollapse={() => setCollapsed(!collapsed)}
         onCollapse={(collapsed, type) => {
           console.log(collapsed, type);
         }}
       >
         <Typography>
-          {/* <Paragraph
-                        className="demo-logo-vertical font-bold text-center mt-7! "
-                        style={{
-                            fontFamily: "Comic Neue, cursive",
-                            fontSize: collapsed ? '5px' : '24px',
-                            textShadow: `2px 2px 10px ${colorPrimary}`,
-
-                        }}>
-                        Classroom Coach
-                    </Paragraph> */}
           <div>
             <ClassRoomLogoComponent width={"100%"} height={"100"} />
           </div>
@@ -362,10 +384,29 @@ const MainLayout = () => {
                 type="text"
                 icon={<ListIcon className="size-6 text-white" />}
                 onClick={() => setCollapsed(!collapsed)}
-                className="text-lg h-14! w-14! transition duration-700 text-white!"
+                className="text-lg h-14! w-14! transition duration-700 text-white! lg:block! hidden!"
               />
+
+              {/* Open Drawer   */}
+              <Button
+                type="text"
+                icon={<ListIcon className="size-6 text-white" />}
+                onClick={showDrawer}
+                className="text-lg h-14! w-14! transition duration-700 text-white! visisble! lg:hidden!"
+              />
+
+              <div className="flex flex-col items-start justify-center gap-0.5! ml-1!">
+                <Typography.Paragraph className="h-fit! mb-0!  text-xs! xl:text-sm!" style={{ color: colorTextSecondary }}>
+                  Welcome Reza Assar
+                </Typography.Paragraph>
+                <Typography.Paragraph className="h-fit! mb-0! text-xs! xl:text-sm!" style={{ color: colorTextSecondary }}>
+                  Admin
+                </Typography.Paragraph>
+              </div>
+
+
             </div>
-            <div className={`flex flex-row items-center md:gap-2 gap-1`}>
+            <div className={`flex flex-row items-center justify-center gap-4 md:gap-2`}>
               {/* <Switch
                {/*  size="small"
                 checked={isDark}
@@ -376,7 +417,7 @@ const MainLayout = () => {
               /> */}
 
               <Select
-                size={width < 950 ? "small" : "middle"}
+                size={width < 1024 ? "small" : "middle"}
                 value={language}
                 onChange={(value: string) => {
                   setLanguage(value);
@@ -404,7 +445,7 @@ const MainLayout = () => {
               {ArrayButtonOnHeader.map((item: ArrayButtonOnHeaderType) => {
                 return (
                   <>
-                    <Link to={item.link || "#"} key={item.title}>
+                    <Link to={item.link || "#"} key={item.title} className="lg:block hidden">
                       <Button
                         type="primary"
                         className="shadow-none! border-2! border-solid! border-white!"
@@ -419,13 +460,22 @@ const MainLayout = () => {
                   </>
                 );
               })}
-              <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 ml-2">
+              <div className="lg:block hidden  w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 ml-2">
                 <img
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
                   alt="User"
                   className="w-full h-full object-cover"
                 />
               </div>
+              <Dropdown menu={{ items }} trigger={['click']} >
+                <div className="visisble lg:hidden cursor-pointer  w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 ml-2">
+                  <img
+                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
+                    alt="User"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              </Dropdown>
             </div>
           </div>
         </Header>
@@ -444,8 +494,52 @@ const MainLayout = () => {
           Classroom Coach ©{new Date().getFullYear()}{" "}
           {t("mainlayout.create_messgae")}
         </Footer>
+
+        {open && <Drawer
+          title={
+            <ClassRoomLogoComponent width={"100%"} height={"100"} />
+          }
+          // closeIcon={<ClosedCaptioningIcon />}
+          closable={true}
+          placement={'left'}
+          onClose={onClose}
+          open={open}
+          key={'left'}
+          styles={{
+            header: {
+              backgroundColor: colorBgBase,
+
+            },
+            body: {
+              backgroundColor: colorBgBase,
+              padding: 0,
+              margin: 0
+
+            }
+          }}
+          width={width < 510 ? 180 : 240}
+          destroyOnHidden={true}
+        >
+          <Menu
+            style={{
+              padding: 0,
+              margin: 0,
+              borderRight: 0, // حذف حاشیه راست (اختیاری)
+            }}
+            onClick={(info) => {
+              navigate(`${info.key}`);
+            }}
+            mode="inline"
+            selectedKeys={[location.pathname]}
+            items={userRole === "org-admin"
+              ? orgAdminArrayMenuItem
+              : userRole === "site-admin"
+                ? siteAdminArrayMenuItem
+                : teacherArrayMenuItem} />
+
+        </Drawer>}
       </Layout>
-    </Layout>
+    </Layout >
   );
 };
 
