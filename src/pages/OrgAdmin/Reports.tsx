@@ -57,7 +57,7 @@ function ReportCardComponent({ report }: ReportCardComponentProps) {
 
   return (
     <div
-      className="w-full min-h-[220px] lg:h-[220px] rounded-lg shadow-xl flex flex-row cursor-pointer transition-transform hover:scale-[1.02]"
+      className="w-full min-h-[220px] lg:h-[220px] rounded-lg shadow-xl flex flex-col lg:flex-row cursor-pointer transition-transform hover:scale-[1.02]"
       style={{ backgroundColor: colorBgBase }}
       onClick={handleClick}
       role="button"
@@ -70,12 +70,12 @@ function ReportCardComponent({ report }: ReportCardComponentProps) {
       }}
     >
       <div
-        className="w-[40%] flex-shrink-0 min-h-[220px] lg:h-full bg-no-repeat bg-center bg-cover rounded-tl-lg rounded-bl-lg"
+        className="w-full lg:w-40 min-h-[220px] lg:h-full bg-no-repeat bg-center bg-cover lg:rounded-tl-lg lg:rounded-bl-lg rounded-t-lg rounded-b-lg"
         style={{ backgroundImage: `url('${report.imageUrl}')` }}
         aria-label={`${report.title} image`}
       />
-      <div className="flex flex-col w-[60%] p-4! ml-4!">
-        <Typography.Title level={4} className="font-bold! mb-2! mt-0! line-clamp-1">
+      <div className="flex flex-col flex-1 p-4! ml-4!">
+        <Typography.Title level={4} className="text-lg! lg:text-xl! font-bold! mb-2! mt-0! line-clamp-1">
           {report.title}
         </Typography.Title>
         <Typography.Paragraph className="mb-0! pr-2! text-sm line-clamp-4">
