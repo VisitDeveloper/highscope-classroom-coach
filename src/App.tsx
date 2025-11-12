@@ -52,7 +52,7 @@ function App() {
 
   // مثال: user فعلی
 
-  const [userRole] = useState<UserRole>("org-admin");
+  const [userRole] = useState<UserRole>("site-admin");
 
   const [isLogin] = useState<boolean>(true)
 

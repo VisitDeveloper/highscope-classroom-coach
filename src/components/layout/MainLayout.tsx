@@ -22,7 +22,6 @@ import {
   InfoIcon,
   SignOutIcon,
   ClipboardTextIcon,
-  ClosedCaptioningIcon,
 } from "@phosphor-icons/react";
 import CampusIcon from './../icon/campus-icon'
 
@@ -60,7 +59,7 @@ const MainLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { width } = useWindowSize();
-  const [userRole] = useState<UserRole>("org-admin");
+  const [userRole] = useState<UserRole>("site-admin");
 
   useEffect(() => {
     if (width < 1190) {
@@ -425,7 +424,7 @@ const MainLayout = () => {
                 }}
                 suffixIcon={null}
                 prefix={<GlobeIcon className="size-4 text-white" />}
-                className="custom-select shadow-none! border-2! border-solid! border-white! rounded-sm text-white!"
+                className="custom-select shadow-none! border-2! border-solid! border-white! rounded-sm text-white! mt-0.5!"
                 style={{
                   backgroundColor: colorPrimary,
                   color: `${colorTextSecondary} !important`,
@@ -445,11 +444,11 @@ const MainLayout = () => {
               {ArrayButtonOnHeader.map((item: ArrayButtonOnHeaderType) => {
                 return (
                   <>
-                    <Link to={item.link || "#"} key={item.title} className="lg:block hidden">
+                    <Link to={item.link || "#"} key={item.title} className="lg:block hidden mt-2!">
                       <Button
                         type="primary"
-                        className="shadow-none! border-2! border-solid! border-white!"
-                        size={width < 950 ? "small" : "middle"}
+                        className="shadow-none! border-2! border-solid! border-white! "
+                        size={"small"}
                       >
                         {item.icon}
                         {width < 768 ? null : (
@@ -460,7 +459,7 @@ const MainLayout = () => {
                   </>
                 );
               })}
-              <div className="lg:block hidden  w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 ml-2">
+              <div className="lg:block hidden  w-10 h-10 rounded-full overflow-hidden border-2 border-white/30 ml-2 ">
                 <img
                   src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop"
                   alt="User"

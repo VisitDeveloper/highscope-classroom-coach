@@ -45,6 +45,7 @@ interface ThemeTokens {
 
     menuItemFontSize: number;
     menuItemHeight: number;
+    controlHeight?: number | string;
 
 
 }
@@ -108,6 +109,9 @@ export const lightTokens: ThemeTokens = {
 
     menuItemFontSize: 18, // سایز فونت آیتم منو
     menuItemHeight: 52, // ارتفاع آیتم
+
+    // input 
+    controlHeight: 42
 
 };
 

@@ -6,6 +6,7 @@ import {
   CalendarBlankIcon,
   FileCloudIcon,
 } from "@phosphor-icons/react";
+import TitlePage from "./../../components/common/title-page";
 
 const resourcesLinks = [
   {
@@ -64,14 +65,7 @@ export default function Resources() {
   } = theme.useToken();
   return (
     <div>
-      <div
-        className="flex flex-row justify-center items-center h-[60px] w-full rounded-sm"
-        style={{ backgroundColor: colorPrimary }}
-      >
-        <Typography.Title level={5} style={{ color: "#fff" }}>
-          Resources
-        </Typography.Title>
-      </div>
+      <TitlePage title="Resources" />
 
       <Row gutter={[25, 25]} className="mt-4!">
         {resourcesLinks.map((resource, index) => (
