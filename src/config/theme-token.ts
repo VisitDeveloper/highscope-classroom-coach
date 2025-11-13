@@ -45,6 +45,8 @@ interface ThemeTokens {
 
     menuItemFontSize: number;
     menuItemHeight: number;
+    controlHeight?: number | string;
+    colorError?: string;
 
 
 }
@@ -56,6 +58,7 @@ export const lightTokens: ThemeTokens = {
     colorPrimaryHover: '#008C15',
     colorPrimaryActive: "#43B02A",
 
+    colorError: '#B81237',
     colorSecondary: "#A7D500",
     colorSecondaryHover: "#99C400",
 
@@ -108,6 +111,9 @@ export const lightTokens: ThemeTokens = {
 
     menuItemFontSize: 18, // سایز فونت آیتم منو
     menuItemHeight: 52, // ارتفاع آیتم
+
+    // input 
+    controlHeight: 42
 
 };
 
