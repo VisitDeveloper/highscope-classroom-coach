@@ -59,7 +59,7 @@ const MainLayout = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { width } = useWindowSize();
-  const [userRole] = useState<UserRole>("site-admin");
+  const [userRole] = useState<UserRole>("org-admin");
 
   useEffect(() => {
     if (width < 1190) {
@@ -337,7 +337,7 @@ const MainLayout = () => {
           // backgroundRepeat: 'no-repeat',
           // backgroundSize: 'cover',
           // backgroundPosition: 'center',
-          // backdropFilter: 'blur(22px)', // برای blur
+          // backdropFilter: 'blur(22px)', // برای blurn
         }}
         trigger={null}
         width={width < 1024 ? 0 : 235}
@@ -447,7 +447,8 @@ const MainLayout = () => {
                     <Link to={item.link || "#"} key={item.title} className="lg:block hidden mt-2!">
                       <Button
                         type="primary"
-                        className="shadow-none! border-2! border-solid! border-white! "
+                        className="shadow-none! border-2! border-solid! border-white! duration-400! hover:duration-400 ease-in"
+
                         size={"small"}
                       >
                         {item.icon}

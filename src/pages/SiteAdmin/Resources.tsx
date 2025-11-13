@@ -61,7 +61,7 @@ const resourcesLinks = [
 
 export default function Resources() {
   const {
-    token: { colorPrimary, colorBorder },
+    token: { colorPrimary, colorBorder, colorError },
   } = theme.useToken();
   return (
     <div>
@@ -80,7 +80,7 @@ export default function Resources() {
           >
             <div className="rounded-sm shadow-lg bg-[#e8e8e8] flex flex-col">
               <div className="flex flex-row justify-start items-center gap-1.5 px-4! py-3!">
-                <FilePdfIcon size={55} color="red" />
+                <FilePdfIcon size={55} color={colorError} />
 
                 <Typography.Text style={{ fontWeight: 500 }}>
                   {resource.title}
@@ -109,10 +109,11 @@ export default function Resources() {
                   </span>
                 </div>
 
-                <div className="flex justify-center items-center w-full mt-7!">
+                <div className="flex justify-center items-center w-full mt-7! mb-4!">
                   <Link href={resource.href} target="_blank">
                     <Button
                       type="default"
+                      size="small"
                       style={{ color: colorPrimary, borderColor: colorPrimary }}
                     >
                       Download
